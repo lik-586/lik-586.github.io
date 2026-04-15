@@ -1,172 +1,292 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEUQ Student | CS Undergraduate</title>
+    <title>lk | CS Undergraduate</title>
     <style>
-        /* 基础样式重置 */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #ffffff;
-            color: #24292e;
-            line-height: 1.6;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+        /* --- 全局样式 & 字体 --- */
+        :root {
+            --primary-color: #d1684e; /* 参考图的橙色 */
+            --text-main: #24292e;
+            --text-gray: #586069;
+            --bg-color: #ffffff;
+            --bg-code: #f6f8fa;
+            --border-color: #e1e4e8;
         }
 
-        /* 颜色定义 - 模仿参考图 */
-        .text-orange { color: #d1684e; } /* 标题橙色 */
-        .text-gray { color: #586069; }   /* 次要文字灰色 */
-        .bg-gray { background-color: #f6f8fa; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-        h1 { font-size: 24px; font-weight: 600; margin-bottom: 10px; }
-        h2 { font-size: 20px; font-weight: 600; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid #eaecef; padding-bottom: 5px; }
-        h3 { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
-
-        p { margin-bottom: 10px; }
-        ul { margin-bottom: 15px; padding-left: 20px; }
-        li { margin-bottom: 5px; }
-
-        /* 链接和按钮样式 */
-        a { color: #0366d6; text-decoration: none; }
+        a { color: var(--primary-color); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        strong { color: var(--text-main); font-weight: 600; }
 
-        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-        .tag {
-            display: inline-block;
+        /* --- 头部区域 --- */
+        header { margin-bottom: 30px; }
+        .typewriter-container {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border-right: 2px solid var(--primary-color);
+            white-space: nowrap;
+            overflow: hidden;
+            width: fit-content;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            font-size: 1rem;
+            color: var(--primary-color);
+            opacity: 0; /* 初始隐藏，JS控制淡入 */
+            animation: fadeIn 1s forwards 0.5s;
+        }
+
+        .status-badges {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            font-size: 0.85rem;
             padding: 4px 10px;
             border-radius: 6px;
-            font-size: 14px;
+            background-color: var(--bg-code);
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- 链接标签区域 --- */
+        .links-section h3, .projects-section h3, .edu-section h3 {
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        .tag {
+            font-size: 0.85rem;
             font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 6px;
             color: white;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        /* 模拟参考图中的彩色标签 */
-        .tag-blog { background-color: #24292e; }
-        .tag-wiki { background-color: #d1684e; }
-        .tag-leetcode { background-color: #586069; }
-        .tag-algo { background-color: #f9826c; }
-        .tag-mail { background-color: #24292e; }
-        .tag-emailaddr { background-color: #cb2431; }
-        .tag-social { background-color: #24292e; }
-        .tag-social-val { background-color: #0366d6; }
-        .tag-csdn { background-color: #586069; }
-        .tag-csdn-val { background-color: #28a745; }
+        /* 颜色模拟参考图 */
+        .t-blog { background-color: #24292e; }
+        .t-wiki { background-color: var(--primary-color); }
+        .t-leetcode { background-color: #586069; }
+        .t-algo { background-color: #f9826c; }
+        .t-mail { background-color: #24292e; }
+        .t-email { background-color: #cb2431; }
+        .t-gh { background-color: #24292e; }
+        .t-gh-val { background-color: #0366d6; }
 
-        /* 引用块 */
+        /* --- 项目列表 --- */
+        .project-item {
+            margin-bottom: 25px;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .project-date {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-family: monospace;
+        }
+        .tech-stack {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            font-family: monospace;
+            background: var(--bg-code);
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .project-desc li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        code {
+            background-color: var(--bg-code);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+
+        /* --- 教育背景 --- */
+        .edu-item { margin-bottom: 15px; }
+        .course-list { font-size: 0.9rem; color: var(--text-gray); margin-top: 5px; }
+
+        /* --- 引用 --- */
         blockquote {
-            border-left: 4px solid #dfe2e5;
-            padding-left: 15px;
-            color: #6a737d;
-            margin: 20px 0;
+            border-left: 4px solid var(--border-color);
+            padding-left: 16px;
+            margin: 30px 0;
+            color: var(--text-gray);
+            font-style: italic;
         }
 
-        /* 响应式调整 */
+        /* --- 动画 --- */
+        @keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: var(--primary-color); } }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* --- 响应式 --- */
         @media (max-width: 600px) {
-            body { padding: 20px 15px; }
-            h1 { font-size: 20px; }
+            body { margin: 20px auto; padding: 0 15px; }
+            .typewriter-container { font-size: 1.1rem; width: 100%; }
+            .project-header { flex-direction: column; }
+            .project-date { margin-top: 4px; }
         }
     </style>
 </head>
 <body>
 
-<!-- 头部介绍 -->
-<header>
-    <h1 class="text-orange">Hi, I'm lk. CS Undergraduate.</h1>
-    <p class="text-orange">
-        Northeastern University (QHD) | C++ & Python Enthusiast | OS Kernel & AI Developer
-    </p>
-    <p>👋 I am seeking internships in Backend or AI Engineering.</p>
+    <!-- 头部介绍 -->
+    <header>
+        <!-- 打字机标题 -->
+        <div class="typewriter-container" id="typewriter"></div>
 
-    <div style="margin-top: 10px;">
-        <span class="bg-gray" style="padding: 2px 8px; border-radius: 4px; font-size: 14px;">🌱 GPA 2.84/5.0</span>
-        <span class="bg-gray" style="padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-left: 5px;">📍 Qinhuangdao / Remote</span>
-    </div>
-</header>
+        <!-- 副标题 -->
+        <div class="subtitle">
+            Northeastern University (QHD) | C++ & Python Enthusiast | OS Kernel & AI Developer
+        </div>
 
-<br>
+        <!-- 状态徽章 -->
+        <div class="status-badges">
+            <div class="badge">👋 I am seeking internships in Backend or AI Engineering.</div>
+            <div class="badge">🌱 GPA 2.84/5.0</div>
+            <div class="badge">📍 Qinhuangdao / Remote</div>
+        </div>
+    </header>
 
-<!-- 简短自我介绍 -->
-<ul>
-    <li>I'm currently a Junior at <strong>NEUQ</strong>, majoring in Computer Science and Technology.</li>
-    <li>I love digging into system internals. Recently built an <strong>OS Kernel Simulator</strong> with C++.</li>
-    <li>Passionate about LLMs. Developed an <strong>AI Companion</strong> with persistent memory using DeepSeek.</li>
-    <li>Open to internships. Feel free to email me!</li>
-</ul>
-
-<!-- 链接区域 -->
-<section>
-    <h3>Links</h3>
-    <div class="tag-container">
-        <!-- 这里你可以替换成你真实的链接 -->
-        <span class="tag tag-mail">Email</span>
-        <span class="tag tag-emailaddr">1719149528@qq.com</span>
-        <br> <!-- 换行模拟参考图 -->
-        <span class="tag tag-social">GitHub</span>
-        <span class="tag tag-social-val">lik-586</span>
-    </div>
-</section>
-
-<!-- 项目经历 (核心亮点) -->
-<section>
-    <h3>Featured Projects</h3>
-
-    <!-- 项目 1 -->
-    <div style="margin-bottom: 20px;">
-        <h4>
-            <span style="color: #0366d6;">📂</span>
-            OS Kernel Simulator — High Concurrency File System
-            <span style="font-size: 12px; color: #6a737d; font-weight: normal; float: right;">2026.01</span>
-        </h4>
-        <p style="font-size: 14px; color: #586069;">
-            <strong>Tech:</strong> C++17, Linux Syscall (mmap/semaphore), FAT32, LRU
-        </p>
+    <!-- 简短自我介绍 -->
+    <section>
+        <p>I'm a Junior at <strong>NEUQ</strong> passionate about digging into system internals and LLMs.</p>
         <ul>
-            <li>Designed a simplified OS kernel with file management and process scheduling.</li>
-            <li>Implemented <strong>FAT32</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.</li>
-            <li>Optimized I/O efficiency by ~40% using <strong>LRU Buffer Pool</strong> and dirty page write-back.</li>
-            <li>Solved race conditions in multi-threading via Semaphores and Mutex Locks.</li>
+            <li>Built an <strong>OS Kernel Simulator</strong> with C++ focusing on concurrency.</li>
+            <li>Developed an <strong>AI Companion</strong> with persistent memory using DeepSeek.</li>
+            <li>Open to internships. Feel free to email me!</li>
         </ul>
-    </div>
+    </section>
 
-    <!-- 项目 2 -->
-    <div style="margin-bottom: 20px;">
-        <h4>
-            <span style="color: #0366d6;">🤖</span>
-            AI Companion — Roleplay & Memory System
-            <span style="font-size: 12px; color: #6a737d; font-weight: normal; float: right;">2026.03 - 2026.04</span>
-        </h4>
-        <p style="font-size: 14px; color: #586069;">
-            <strong>Tech:</strong> Python, Streamlit, DeepSeek API, JSON
-        </p>
-        <ul>
-            <li>Built an AI chatbot with persistent memory and emotional roleplay capabilities.</li>
-            <li>Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.</li>
-            <li>Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.</li>
-            <li>Achieved millisecond-level streaming response and seamless context switching.</li>
-        </ul>
-    </div>
-</section>
+    <!-- 链接区域 (模仿参考图的 Links) -->
+    <section class="links-section">
+        <h3>Links</h3>
+        <div class="tag-container">
+            <span class="tag t-mail">Email</span>
+            <span class="tag t-email">1719149528@qq.com</span>
 
-<!-- 教育背景 -->
-<section>
-    <h3>Education</h3>
-    <p><strong>Northeastern University (Qinhuangdao)</strong> | B.S. in Computer Science</p>
-    <p style="font-size: 14px; color: #586069;">
-        <strong>Core Courses:</strong> Data Structures (84), OS Principles (83), Compilation (83), Java (90).
-    </p>
-</section>
+            <span class="tag t-gh">GitHub</span>
+            <span class="tag t-gh-val">lik-586</span>
+        </div>
+    </section>
 
-<!-- 底部引用/格言 -->
-<blockquote>
-    "Attempt to achieve any sustainable behavior through automated means."
-</blockquote>
+    <!-- 精选项目 -->
+    <section class="projects-section">
+        <h3>Featured Projects</h3>
 
-<footer style="font-size: 12px; color: #959da5; text-align: center; margin-top: 40px;">
-    © 2026 lk. Built with simple HTML.
-</footer>
+        <!-- 项目 1 -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-title">📂 OS Kernel Simulator — High Concurrency File System</span>
+                <span class="project-date">2026.01</span>
+            </div>
+            <div class="tech-stack">Tech: C++17, Linux Syscall, FAT32, LRU</div>
+            <ul class="project-desc">
+                <li>Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.</li>
+                <li>Implemented <strong>FAT32</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.</li>
+                <li>Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.</li>
+                <li>Solved race conditions in multi-threading via Semaphores and Mutex Locks.</li>
+            </ul>
+        </div>
+
+        <!-- 项目 2 -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-title">🤖 AI Companion — Roleplay & Memory System</span>
+                <span class="project-date">2026.03 - 2026.04</span>
+            </div>
+            <div class="tech-stack">Tech: Python, Streamlit, DeepSeek API, JSON</div>
+            <ul class="project-desc">
+                <li>Built an AI chatbot with <strong>persistent memory</strong> and emotional roleplay capabilities.</li>
+                <li>Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.</li>
+                <li>Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.</li>
+                <li>Achieved millisecond-level streaming response and seamless context switching.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 教育背景 -->
+    <section class="edu-section">
+        <h3>Education</h3>
+        <div class="edu-item">
+            <strong>Northeastern University (Qinhuangdao)</strong> | B.S. in Computer Science
+            <div class="course-list">
+                <strong>Core Courses:</strong> Data Structures (84), OS Principles (83), Compilation (83), Java (90).
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部格言 -->
+    <blockquote>
+        "Attempt to achieve any sustainable behavior through automated means."
+    </blockquote>
+
+    <footer style="text-align: center; color: #959da5; font-size: 0.8rem; margin-top: 40px; padding-bottom: 20px;">
+        © 2026 lk. Built with simple HTML.
+    </footer>
+
+    <!-- 打字机脚本 -->
+    <script>
+        const textToType = "Hi, I'm lk. CS Undergraduate.";
+        const typeWriterElement = document.getElementById('typewriter');
+        let idx = 0;
+
+        function typeWriter() {
+            if (idx < textToType.length) {
+                typeWriterElement.textContent += textToType.charAt(idx);
+                idx++;
+                setTimeout(typeWriter, 100); // 打字速度
+            }
+        }
+
+        // 页面加载完成后开始打字
+        window.onload = typeWriter;
+    </script>
 
 </body>
 </html>
