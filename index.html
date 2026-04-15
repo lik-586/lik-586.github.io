@@ -7,10 +7,12 @@
     <style>
         /* --- 全局样式 & 字体 --- */
         :root {
-            --primary-color: #d1684e;
+            --primary-color: #d1684e; /* 参考图的橙色 */
             --text-main: #24292e;
             --text-gray: #586069;
             --bg-color: #ffffff;
+            --bg-code: #f6f8fa;
+            --border-color: #e1e4e8;
         }
 
         body {
@@ -23,58 +25,63 @@
             margin: 0 auto;
         }
 
-        /* --- 头部样式 --- */
-        header {
-            text-align: left;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        /* 标题基础样式 */
-        .typewriter-text {
+        /* --- 动态标题样式 (打字机效果) --- */
+        .typewriter-container {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--primary-color);
-            font-family: 'Courier New', Courier, monospace; /* 等宽字体更像代码 */
-            font-weight: bold;
-            font-size: 24px;
-            display: block; /* 让副标题换行显示 */
-            margin-bottom: 10px;
-            white-space: pre-wrap; /* 保持空格和换行 */
+            border-right: 2px solid var(--primary-color); /* 光标 */
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            width: 0; /* 初始宽度为0 */
         }
 
-        .subtitle {
-            font-size: 18px;
-            font-weight: normal;
-            color: var(--text-gray);
-            margin-top: 5px;
-        }
-
-        /* --- 光标样式 --- */
-        /* 默认带有光标的样式 */
-        .cursor {
-            border-right: 2px solid var(--primary-color);
-            animation: blink 1s step-end infinite;
-            padding-right: 2px; /* 给光标留点空隙 */
-        }
-
-        /* 光标闪烁动画 */
-        @keyframes blink {
+        /* 定义闪烁动画 */
+        @keyframes blink-animation {
             0%, 100% { border-color: transparent; }
             50% { border-color: var(--primary-color); }
         }
 
-        /* --- 标签和卡片样式 --- */
-        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        /* 只有添加 .blinking 类时才闪烁 */
+        .blinking {
+            animation: blink-animation 0.8s step-end infinite;
+        }
+
+        /* --- 通用排版 --- */
+        h1, h2, h3 { margin-top: 0; color: var(--text-main); }
+        h2 { border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-top: 30px; }
+        p { margin-bottom: 15px; }
+        
+        .text-gray { color: var(--text-gray); }
+        .text-orange { color: var(--primary-color); }
+        
+        a { color: var(--primary-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* --- 标签样式 (Badge) --- */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
         .tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 14px;
+            border-radius: 12px; /* 圆角 */
+            font-size: 13px;
             font-weight: 500;
             color: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
+
+        /* 标签配色 */
         .tag-blog { background-color: #24292e; }
-        .tag-wiki { background-color: #d1684e; }
+        .tag-wiki { background-color: var(--primary-color); }
         .tag-leetcode { background-color: #586069; }
         .tag-algo { background-color: #f9826c; }
         .tag-mail { background-color: #24292e; }
@@ -84,127 +91,180 @@
         .tag-csdn { background-color: #586069; }
         .tag-csdn-val { background-color: #28a745; }
 
-        blockquote {
-            border-left: 4px solid #dfe2e5;
-            padding-left: 15px;
-            color: #6a737d;
-            margin: 20px 0;
-        }
-
-        /* 项目卡片 */
+        /* --- 项目卡片 --- */
         .project-card {
-            border: 1px solid var(--border-color);
+            background-color: var(--bg-code);
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            transition: transform 0.2s;
+            border: 1px solid var(--border-color);
         }
-        .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
         }
+
         .tech-stack {
             font-size: 12px;
             color: var(--text-gray);
             font-family: monospace;
-            background: var(--bg-code);
-            padding: 2px 6px;
-            border-radius: 4px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .project-card ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+
+        .project-card li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        /* --- 引用块 --- */
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            padding-left: 16px;
+            color: var(--text-gray);
+            font-style: italic;
+            margin: 30px 0;
+        }
+
+        /* --- 响应式 --- */
+        @media (max-width: 600px) {
+            body { padding: 20px 15px; }
+            .typewriter-container { font-size: 18px; }
+            .project-title { flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
 <body>
 
-<!-- 头部介绍 -->
+<!-- 头部区域 -->
 <header>
-    <!-- 主标题 -->
-    <div id="main-title" class="typewriter-text cursor">
-        Hi, I'm lk. CS Undergraduate.
-    </div>
-    <!-- 副标题 -->
-    <div id="sub-title" class="typewriter-text subtitle cursor">
-        Northeastern University (QHD) | C++ & Python Enthusiast
+    <!-- 打字机标题 -->
+    <div class="typewriter-container" id="typewriter"></div>
+    
+    <p class="text-orange" style="margin-top: 10px; font-weight: 500;">
+        Northeastern University (QHD) | Recreational coder | Python & AI enthusiast.
+    </p>
+    
+    <p>
+        <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="20px">
+        I am open to internship opportunities in any interesting direction.
+    </p>
+
+    <div class="tags-container" style="margin-top: 15px;">
+        <span class="tag" style="background-color: #f6f8fa; color: #586069; border: 1px solid var(--border-color);">🌱 Born 2005-06-03</span>
+        <span class="tag" style="background-color: #f6f8fa; color: #586069; border: 1px solid var(--border-color);">📍 Across China / Remote</span>
     </div>
 </header>
 
-<!-- 链接区域 -->
+<hr style="border: 0; border-top: 1px solid var(--border-color); margin: 30px 0;">
+
+<!-- 关于我 -->
 <section>
-    <div class="tag-container">
+    <h2>👨‍💻 About Me</h2>
+    <ul>
+        <li><strong>Current Status:</strong> Junior at <strong>NEUQ</strong>, majoring in Computer Science and Technology (GPA 2.84/5.0).</li>
+        <li><strong>System Lover:</strong> Deeply interested in system internals. Recently built an <strong>OS Kernel Simulator</strong> with C++.</li>
+        <li><strong>AI Explorer:</strong> Passionate about LLMs. Developed an <strong>AI Companion</strong> with persistent memory using DeepSeek.</li>
+        <li><strong>Location:</strong> Qinhuangdao / Remote.</li>
+    </ul>
+</section>
+
+<!-- 链接 -->
+<section>
+    <h2>🔗 Connect</h2>
+    <div class="tags-container">
         <span class="tag tag-mail">Email</span>
         <span class="tag tag-emailaddr">1719149528@qq.com</span>
         <span class="tag tag-social">GitHub</span>
-        <span class="tag tag-social-val">lik-586</span>
+        <span class="tag tag-social-val">@lik-586</span>
     </div>
 </section>
 
 <!-- 项目经历 -->
 <section>
+    <h2>🚀 Featured Projects</h2>
+
     <div class="project-card">
-        <h3>📂 OS Kernel Simulator</h3>
-        <p class="tech-stack">C++17, Linux Syscall, FAT32, LRU</p>
+        <div class="project-title">
+            <span>📂 OS Kernel Simulator</span>
+            <span style="font-size: 12px; font-weight: normal; color: var(--text-gray);">Jan 2026</span>
+        </div>
+        <span class="tech-stack">Tech: C++17, Linux Syscall, FAT32, LRU</span>
         <ul>
-            <li>Designed a simplified OS kernel with file management.</li>
-            <li>Optimized I/O efficiency by ~40% using LRU Buffer Pool.</li>
+            <li>Designed a simplified OS kernel with file management and process scheduling.</li>
+            <li>Implemented <strong>FAT32</strong> algorithm and memory mapping (<code>mmap</code>) for efficient disk simulation.</li>
+            <li>Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.</li>
+            <li>Solved race conditions in multi-threading via Semaphores and Mutex Locks.</li>
         </ul>
     </div>
 
     <div class="project-card">
-        <h3>🤖 AI Companion</h3>
-        <p class="tech-stack">Python, Streamlit, DeepSeek API</p>
+        <div class="project-title">
+            <span>🤖 AI Companion</span>
+            <span style="font-size: 12px; font-weight: normal; color: var(--text-gray);">Mar 2026 - Apr 2026</span>
+        </div>
+        <span class="tech-stack">Tech: Python, Streamlit, DeepSeek API, JSON</span>
         <ul>
-            <li>Built an AI chatbot with persistent memory.</li>
-            <li>Implemented CRUD operations using JSON storage.</li>
+            <li>Built an AI chatbot featuring <strong>persistent memory</strong> and emotional roleplay capabilities.</li>
+            <li>Designed a dynamic <strong>System Prompt</strong> mechanism for flexible personality injection.</li>
+            <li>Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.</li>
+            <li>Achieved millisecond-level streaming response and seamless context switching.</li>
         </ul>
     </div>
 </section>
+
+<!-- 教育背景 -->
+<section>
+    <h2>🎓 Education</h2>
+    <p><strong>Northeastern University (Qinhuangdao)</strong> | B.S. in Computer Science</p>
+    <p class="text-gray" style="font-size: 14px;">
+        <strong>Core Courses:</strong> Data Structures (84), OS Principles (83), Compilation (83), Java (90).
+    </p>
+</section>
+
+<blockquote>
+    "Attempt to achieve any sustainable behavior through automated means."
+</blockquote>
 
 <footer style="font-size: 12px; color: #959da5; text-align: center; margin-top: 40px;">
     © 2026 lk. Built with simple HTML.
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // 配置参数
-        const typingSpeed = 50; // 打字速度 (毫秒/字)
+    // --- 打字机逻辑 ---
+    const textToType = "Hi, I'm lk. CS Undergraduate.";
+    const typewriterElement = document.getElementById('typewriter');
+    let index = 0;
 
-        // 获取 DOM 元素
-        const mainTitleEl = document.getElementById('main-title');
-        const subTitleEl = document.getElementById('sub-title');
+    function type() {
+        if (index < textToType.length) {
+            // 添加字符
+            typewriterElement.textContent += textToType.charAt(index);
+            index++;
+            // 递归调用，模拟打字速度 (100ms)
+            setTimeout(type, 100);
+        } else {
+            // --- 打字结束 ---
+            // 移除闪烁类，光标将保持静止（常亮）
+            typewriterElement.classList.remove('blinking');
+        }
+    }
 
-        // 获取原始文本并清空内容，准备重新打字
-        const mainText = mainTitleEl.innerText;
-        const subText = subTitleEl.innerText;
-        mainTitleEl.innerText = '';
-        subTitleEl.innerText = '';
-
-        // --- 核心逻辑：同时启动两个打字机 ---
-
-        // 主标题打字逻辑
-        let i = 0;
-        const mainTimer = setInterval(() => {
-            if (i < mainText.length) {
-                mainTitleEl.innerText += mainText.charAt(i);
-                i++;
-            } else {
-                clearInterval(mainTimer);
-                // 主标题打完，移除光标类
-                mainTitleEl.classList.remove('cursor');
-            }
-        }, typingSpeed);
-
-        // 副标题打字逻辑
-        let j = 0;
-        const subTimer = setInterval(() => {
-            if (j < subText.length) {
-                subTitleEl.innerText += subText.charAt(j);
-                j++;
-            } else {
-                clearInterval(subTimer);
-                // 副标题打完，移除光标类
-                subTitleEl.classList.remove('cursor');
-            }
-        }, typingSpeed);
-    });
+    // 页面加载完成后开始
+    window.onload = function() {
+        // 初始添加闪烁类，让光标在打字时闪烁
+        typewriterElement.classList.add('blinking');
+        type();
+    };
 </script>
 
 </body>
