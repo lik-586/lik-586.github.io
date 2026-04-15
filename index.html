@@ -7,12 +7,10 @@
     <style>
         /* --- 全局样式 & 字体 --- */
         :root {
-            --primary-color: #d1684e; /* 参考图的橙色 */
+            --primary-color: #d1684e;
             --text-main: #24292e;
             --text-gray: #586069;
             --bg-color: #ffffff;
-            --bg-code: #f6f8fa;
-            --border-color: #e1e4e8;
         }
 
         body {
@@ -20,273 +18,194 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            max-width: 720px;
-            margin: 40px auto;
-            padding: 0 20px;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        a { color: var(--primary-color); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        strong { color: var(--text-main); font-weight: 600; }
+        /* --- 头部样式 --- */
+        header {
+            text-align: left;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
 
-        /* --- 头部区域 --- */
-        header { margin-bottom: 30px; }
-        .typewriter-container {
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-            font-size: 1.2rem;
-            font-weight: 600;
+        /* 标题基础样式 */
+        .typewriter-text {
             color: var(--primary-color);
-            border-right: 2px solid var(--primary-color);
-            white-space: nowrap;
-            overflow: hidden;
-            width: fit-content;
-            animation: blink-caret 0.75s step-end infinite;
+            font-family: 'Courier New', Courier, monospace; /* 等宽字体更像代码 */
+            font-weight: bold;
+            font-size: 24px;
+            display: block; /* 让副标题换行显示 */
+            margin-bottom: 10px;
+            white-space: pre-wrap; /* 保持空格和换行 */
         }
 
         .subtitle {
-            margin-top: 8px;
-            font-size: 1rem;
-            color: var(--primary-color);
-            opacity: 0; /* 初始隐藏，JS控制淡入 */
-            animation: fadeIn 1s forwards 0.5s;
+            font-size: 18px;
+            font-weight: normal;
+            color: var(--text-gray);
+            margin-top: 5px;
         }
 
-        .status-badges {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        /* --- 光标样式 --- */
+        /* 默认带有光标的样式 */
+        .cursor {
+            border-right: 2px solid var(--primary-color);
+            animation: blink 1s step-end infinite;
+            padding-right: 2px; /* 给光标留点空隙 */
         }
-        .badge {
-            font-size: 0.85rem;
+
+        /* 光标闪烁动画 */
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: var(--primary-color); }
+        }
+
+        /* --- 标签和卡片样式 --- */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tag {
+            display: inline-block;
             padding: 4px 10px;
             border-radius: 6px;
-            background-color: var(--bg-code);
-            color: var(--text-gray);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* --- 链接标签区域 --- */
-        .links-section h3, .projects-section h3, .edu-section h3 {
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 25px;
-        }
-        .tag {
-            font-size: 0.85rem;
+            font-size: 14px;
             font-weight: 500;
-            padding: 5px 12px;
-            border-radius: 6px;
             color: white;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
-        /* 颜色模拟参考图 */
-        .t-blog { background-color: #24292e; }
-        .t-wiki { background-color: var(--primary-color); }
-        .t-leetcode { background-color: #586069; }
-        .t-algo { background-color: #f9826c; }
-        .t-mail { background-color: #24292e; }
-        .t-email { background-color: #cb2431; }
-        .t-gh { background-color: #24292e; }
-        .t-gh-val { background-color: #0366d6; }
+        .tag-blog { background-color: #24292e; }
+        .tag-wiki { background-color: #d1684e; }
+        .tag-leetcode { background-color: #586069; }
+        .tag-algo { background-color: #f9826c; }
+        .tag-mail { background-color: #24292e; }
+        .tag-emailaddr { background-color: #cb2431; }
+        .tag-social { background-color: #24292e; }
+        .tag-social-val { background-color: #0366d6; }
+        .tag-csdn { background-color: #586069; }
+        .tag-csdn-val { background-color: #28a745; }
 
-        /* --- 项目列表 --- */
-        .project-item {
-            margin-bottom: 25px;
+        blockquote {
+            border-left: 4px solid #dfe2e5;
+            padding-left: 15px;
+            color: #6a737d;
+            margin: 20px 0;
         }
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
+
+        /* 项目卡片 */
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
         }
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-        .project-date {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            font-family: monospace;
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .tech-stack {
-            font-size: 0.8rem;
+            font-size: 12px;
             color: var(--text-gray);
-            margin-bottom: 10px;
             font-family: monospace;
             background: var(--bg-code);
             padding: 2px 6px;
             border-radius: 4px;
-            display: inline-block;
-        }
-        .project-desc li {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-            color: #444;
-        }
-        code {
-            background-color: var(--bg-code);
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9em;
-            color: #d73a49;
-        }
-
-        /* --- 教育背景 --- */
-        .edu-item { margin-bottom: 15px; }
-        .course-list { font-size: 0.9rem; color: var(--text-gray); margin-top: 5px; }
-
-        /* --- 引用 --- */
-        blockquote {
-            border-left: 4px solid var(--border-color);
-            padding-left: 16px;
-            margin: 30px 0;
-            color: var(--text-gray);
-            font-style: italic;
-        }
-
-        /* --- 动画 --- */
-        @keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: var(--primary-color); } }
-        @keyframes fadeIn { to { opacity: 1; } }
-
-        /* --- 响应式 --- */
-        @media (max-width: 600px) {
-            body { margin: 20px auto; padding: 0 15px; }
-            .typewriter-container { font-size: 1.1rem; width: 100%; }
-            .project-header { flex-direction: column; }
-            .project-date { margin-top: 4px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 头部介绍 -->
-    <header>
-        <!-- 打字机标题 -->
-        <div class="typewriter-container" id="typewriter"></div>
+<!-- 头部介绍 -->
+<header>
+    <!-- 主标题 -->
+    <div id="main-title" class="typewriter-text cursor">
+        Hi, I'm lk. CS Undergraduate.
+    </div>
+    <!-- 副标题 -->
+    <div id="sub-title" class="typewriter-text subtitle cursor">
+        Northeastern University (QHD) | C++ & Python Enthusiast
+    </div>
+</header>
 
-        <!-- 副标题 -->
-        <div class="subtitle">
-            Northeastern University (QHD) | C++ & Python Enthusiast | OS Kernel & AI Developer
-        </div>
+<!-- 链接区域 -->
+<section>
+    <div class="tag-container">
+        <span class="tag tag-mail">Email</span>
+        <span class="tag tag-emailaddr">1719149528@qq.com</span>
+        <span class="tag tag-social">GitHub</span>
+        <span class="tag tag-social-val">lik-586</span>
+    </div>
+</section>
 
-        <!-- 状态徽章 -->
-        <div class="status-badges">
-            <div class="badge">👋 I am seeking internships in Backend or AI Engineering.</div>
-            <div class="badge">🌱 GPA 2.84/5.0</div>
-            <div class="badge">📍 Qinhuangdao / Remote</div>
-        </div>
-    </header>
-
-    <!-- 简短自我介绍 -->
-    <section>
-        <p>I'm a Junior at <strong>NEUQ</strong> passionate about digging into system internals and LLMs.</p>
+<!-- 项目经历 -->
+<section>
+    <div class="project-card">
+        <h3>📂 OS Kernel Simulator</h3>
+        <p class="tech-stack">C++17, Linux Syscall, FAT32, LRU</p>
         <ul>
-            <li>Built an <strong>OS Kernel Simulator</strong> with C++ focusing on concurrency.</li>
-            <li>Developed an <strong>AI Companion</strong> with persistent memory using DeepSeek.</li>
-            <li>Open to internships. Feel free to email me!</li>
+            <li>Designed a simplified OS kernel with file management.</li>
+            <li>Optimized I/O efficiency by ~40% using LRU Buffer Pool.</li>
         </ul>
-    </section>
+    </div>
 
-    <!-- 链接区域 (模仿参考图的 Links) -->
-    <section class="links-section">
-        <h3>Links</h3>
-        <div class="tag-container">
-            <span class="tag t-mail">Email</span>
-            <span class="tag t-email">1719149528@qq.com</span>
+    <div class="project-card">
+        <h3>🤖 AI Companion</h3>
+        <p class="tech-stack">Python, Streamlit, DeepSeek API</p>
+        <ul>
+            <li>Built an AI chatbot with persistent memory.</li>
+            <li>Implemented CRUD operations using JSON storage.</li>
+        </ul>
+    </div>
+</section>
 
-            <span class="tag t-gh">GitHub</span>
-            <span class="tag t-gh-val">lik-586</span>
-        </div>
-    </section>
+<footer style="font-size: 12px; color: #959da5; text-align: center; margin-top: 40px;">
+    © 2026 lk. Built with simple HTML.
+</footer>
 
-    <!-- 精选项目 -->
-    <section class="projects-section">
-        <h3>Featured Projects</h3>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 配置参数
+        const typingSpeed = 50; // 打字速度 (毫秒/字)
 
-        <!-- 项目 1 -->
-        <div class="project-item">
-            <div class="project-header">
-                <span class="project-title">📂 OS Kernel Simulator — High Concurrency File System</span>
-                <span class="project-date">2026.01</span>
-            </div>
-            <div class="tech-stack">Tech: C++17, Linux Syscall, FAT32, LRU</div>
-            <ul class="project-desc">
-                <li>Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.</li>
-                <li>Implemented <strong>FAT32</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.</li>
-                <li>Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.</li>
-                <li>Solved race conditions in multi-threading via Semaphores and Mutex Locks.</li>
-            </ul>
-        </div>
+        // 获取 DOM 元素
+        const mainTitleEl = document.getElementById('main-title');
+        const subTitleEl = document.getElementById('sub-title');
 
-        <!-- 项目 2 -->
-        <div class="project-item">
-            <div class="project-header">
-                <span class="project-title">🤖 AI Companion — Roleplay & Memory System</span>
-                <span class="project-date">2026.03 - 2026.04</span>
-            </div>
-            <div class="tech-stack">Tech: Python, Streamlit, DeepSeek API, JSON</div>
-            <ul class="project-desc">
-                <li>Built an AI chatbot with <strong>persistent memory</strong> and emotional roleplay capabilities.</li>
-                <li>Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.</li>
-                <li>Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.</li>
-                <li>Achieved millisecond-level streaming response and seamless context switching.</li>
-            </ul>
-        </div>
-    </section>
+        // 获取原始文本并清空内容，准备重新打字
+        const mainText = mainTitleEl.innerText;
+        const subText = subTitleEl.innerText;
+        mainTitleEl.innerText = '';
+        subTitleEl.innerText = '';
 
-    <!-- 教育背景 -->
-    <section class="edu-section">
-        <h3>Education</h3>
-        <div class="edu-item">
-            <strong>Northeastern University (Qinhuangdao)</strong> | B.S. in Computer Science
-            <div class="course-list">
-                <strong>Core Courses:</strong> Data Structures (84), OS Principles (83), Compilation (83), Java (90).
-            </div>
-        </div>
-    </section>
+        // --- 核心逻辑：同时启动两个打字机 ---
 
-    <!-- 底部格言 -->
-    <blockquote>
-        "Attempt to achieve any sustainable behavior through automated means."
-    </blockquote>
-
-    <footer style="text-align: center; color: #959da5; font-size: 0.8rem; margin-top: 40px; padding-bottom: 20px;">
-        © 2026 lk. Built with simple HTML.
-    </footer>
-
-    <!-- 打字机脚本 -->
-    <script>
-        const textToType = "Hi, I'm lk. CS Undergraduate.";
-        const typeWriterElement = document.getElementById('typewriter');
-        let idx = 0;
-
-        function typeWriter() {
-            if (idx < textToType.length) {
-                typeWriterElement.textContent += textToType.charAt(idx);
-                idx++;
-                setTimeout(typeWriter, 100); // 打字速度
+        // 主标题打字逻辑
+        let i = 0;
+        const mainTimer = setInterval(() => {
+            if (i < mainText.length) {
+                mainTitleEl.innerText += mainText.charAt(i);
+                i++;
+            } else {
+                clearInterval(mainTimer);
+                // 主标题打完，移除光标类
+                mainTitleEl.classList.remove('cursor');
             }
-        }
+        }, typingSpeed);
 
-        // 页面加载完成后开始打字
-        window.onload = typeWriter;
-    </script>
+        // 副标题打字逻辑
+        let j = 0;
+        const subTimer = setInterval(() => {
+            if (j < subText.length) {
+                subTitleEl.innerText += subText.charAt(j);
+                j++;
+            } else {
+                clearInterval(subTimer);
+                // 副标题打完，移除光标类
+                subTitleEl.classList.remove('cursor');
+            }
+        }, typingSpeed);
+    });
+</script>
 
 </body>
 </html>
