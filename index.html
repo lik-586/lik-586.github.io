@@ -3,220 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lk | CS Undergraduate</title>
-    <style>
-        /* --- 全局样式 & 字体 --- */
-        :root {
-            --primary-color: #d1684e; /* 参考图的橙色 */
-            --text-main: #24292e;
-            --text-gray: #586069;
-            --bg-color: #ffffff;
-            --bg-code: #f6f8fa;
-            --border-color: #e1e4e8;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            max-width: 720px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        a { color: var(--primary-color); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        strong { color: var(--text-main); font-weight: 600; }
-
-        /* --- 头部区域 --- */
-        header { 
-            margin-bottom: 30px; 
-            text-align: center;
-        }
-        .typewriter-container {
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            border-right: 2px solid var(--primary-color);
-            white-space: nowrap;
-            overflow: hidden;
-            width: fit-content;
-            margin: 0 auto;
-            animation: blink-caret 0.75s step-end infinite;
-        }
-
-        .subtitle {
-            margin-top: 8px;
-            font-size: 1rem;
-            color: var(--primary-color);
-            opacity: 0; /* 初始隐藏，JS控制淡入 */
-            animation: fadeIn 1s forwards 0.5s;
-        }
-
-        header p { margin-top: 12px; }
-
-        .status-badges {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .badge {
-            font-size: 0.85rem;
-            padding: 4px 10px;
-            border-radius: 6px;
-            background-color: var(--bg-code);
-            color: var(--text-gray);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 8px;
-        }
-        .lang-btn {
-            padding: 6px 12px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-color);
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            transition: all 0.2s;
-        }
-        .lang-btn:hover {
-            background: var(--bg-code);
-            color: var(--text-main);
-        }
-        .lang-btn.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        /* --- 链接标签区域 --- */
-        .links-section h3, .projects-section h3, .edu-section h3 {
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        .tag-container {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-        .tag-link {
-            display: flex;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .tag-link a {
-            display: flex;
-            text-decoration: none;
-        }
-        .tag {
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 6px 14px;
-            color: white;
-        }
-        /* 颜色模拟参考图 */
-        .t-mail { background-color: #24292e; }
-        .t-email { background-color: #cb2431; }
-        .t-gh { background-color: #24292e; }
-        .t-gh-val { background-color: #0366d6; }
-
-        /* --- 项目列表 --- */
-        .project-item {
-            margin-bottom: 25px;
-        }
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-        }
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-        .project-date {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            font-family: monospace;
-        }
-        .tech-stack {
-            font-size: 0.8rem;
-            color: var(--text-gray);
-            margin-bottom: 10px;
-            font-family: monospace;
-            background: var(--bg-code);
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-        .project-desc li {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-            color: #444;
-        }
-        code {
-            background-color: var(--bg-code);
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9em;
-            color: #d73a49;
-        }
-
-        /* --- 教育背景 --- */
-        .edu-item { margin-bottom: 15px; }
-        .course-list { font-size: 0.9rem; color: var(--text-gray); margin-top: 5px; }
-
-        /* --- 引用 --- */
-        blockquote {
-            border-left: 4px solid var(--border-color);
-            padding-left: 16px;
-            margin: 30px 0;
-            color: var(--text-gray);
-            font-style: italic;
-        }
-
-        /* --- 动画 --- */
-        @keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: var(--primary-color); } }
-        @keyframes fadeIn { to { opacity: 1; } }
-
-        /* --- 响应式 --- */
-        @media (max-width: 600px) {
-            body { margin: 20px auto; padding: 0 15px; }
-            .typewriter-container { font-size: 1.1rem; width: 100%; }
-            .project-header { flex-direction: column; }
-            .project-date { margin-top: 4px; }
-        }
-    </style>
+    
+    <!-- SEO Meta 标签 -->
+    <meta name="description" content="lk - CS Undergraduate at NEUQ. Passionate about OS Kernel, AI/ML, NLP, and System Programming. Seeking Backend or AI Engineering internships.">
+    <meta name="keywords" content="lk, NEUQ, Northeastern University, Computer Science, OS Kernel, AI, Machine Learning, NLP, Python, C++, PyTorch, Deep Learning, Backend Engineer">
+    <meta name="author" content="lk">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph 标签（社交媒体分享） -->
+    <meta property="og:title" content="lk | CS Undergraduate - OS Kernel & AI Developer">
+    <meta property="og:description" content="CS Student at NEUQ passionate about OS Kernel, AI/ML, and NLP. Seeking Backend or AI Engineering internships.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lik-586.github.io">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/271217861?v=4">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="lk | CS Undergraduate">
+    <meta name="twitter:description" content="CS Student passionate about OS Kernel and AI Development">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/271217861?v=4">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://avatars.githubusercontent.com/u/271217861?v=4">
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>lk | CS Undergraduate - OS Kernel & AI Developer</title>
+    
+    <!-- 结构化数据（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "lk",
+        "url": "https://lik-586.github.io",
+        "sameAs": ["https://github.com/lik-586"],
+        "jobTitle": "CS Undergraduate",
+        "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Northeastern University at Qinhuangdao"
+        },
+        "knowsAbout": ["Operating Systems", "Machine Learning", "Natural Language Processing", "C++", "Python", "PyTorch"]
+    }
+    </script>
 </head>
 <body>
     <!-- 语言切换按钮 -->
     <div class="lang-switch">
-        <button class="lang-btn" onclick="switchLang('zh')">中文</button>
-        <button class="lang-btn active" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('zh', this)">中文</button>
+        <button class="lang-btn active" onclick="switchLang('en', this)">English</button>
     </div>
 
     <!-- 头部介绍 -->
-    <header>
+    <header class="fade-in-section">
+        <!-- 头像 -->
+        <div class="avatar-container">
+            <img class="avatar" src="https://avatars.githubusercontent.com/u/271217861?v=4" alt="lk's avatar">
+        </div>
+        
         <!-- 打字机标题 -->
         <div class="typewriter-container" id="typewriter"></div>
 
@@ -234,17 +81,18 @@
     </header>
 
     <!-- 简短自我介绍 -->
-    <section>
+    <section class="fade-in-section">
         <p data-i18n="intro">I'm a Junior at <strong>NEUQ</strong> passionate about digging into system internals and LLMs.</p>
         <ul>
             <li data-i18n="intro1">Built an <strong>OS Kernel Simulator</strong> with C++ focusing on concurrency.</li>
             <li data-i18n="intro2">Developed an <strong>AI Companion</strong> with persistent memory using DeepSeek.</li>
-            <li data-i18n="intro3">Open to internships. Feel free to email me!</li>
+            <li data-i18n="intro3">Exploring <strong>NLP/ML</strong> through toxicity prediction and classification projects.</li>
+            <li data-i18n="intro4">Open to internships. Feel free to email me!</li>
         </ul>
     </section>
 
     <!-- 链接区域 -->
-    <section class="links-section">
+    <section class="links-section fade-in-section">
         <h3 data-i18n="links">Links</h3>
         <div class="tag-container">
             <div class="tag-link">
@@ -262,17 +110,39 @@
         </div>
     </section>
 
+    <!-- 技能区域 -->
+    <section class="skills-section fade-in-section">
+        <h3 data-i18n="skills">Skills</h3>
+        <div class="skills-container">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">DeepSeek API</span>
+            <span class="skill-tag">Operating Systems</span>
+            <span class="skill-tag">Machine Learning</span>
+        </div>
+    </section>
+
     <!-- 精选项目 -->
-    <section class="projects-section">
+    <section class="projects-section fade-in-section">
         <h3 data-i18n="projects">Featured Projects</h3>
 
-        <!-- 项目 1 -->
+        <!-- 项目 1: OS Kernel Simulator -->
         <div class="project-item">
             <div class="project-header">
                 <span class="project-title">📂 <span data-i18n="project1_title">OS Kernel Simulator — High Concurrency File System</span></span>
                 <span class="project-date">2026.01</span>
             </div>
-            <div class="tech-stack"><span data-i18n="tech">Tech</span>: C++17, Linux Syscall, FAT32, LRU</div>
+            <div class="tech-stack">
+                <span class="tech-tag cpp">C++17</span>
+                <span class="tech-tag linux">Linux Syscall</span>
+                <span class="tech-tag fat32">FAT32</span>
+                <span class="tech-tag lru">LRU</span>
+            </div>
             <ul class="project-desc">
                 <li data-i18n="project1_1">Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.</li>
                 <li data-i18n="project1_2">Implemented <strong>FAT32</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.</li>
@@ -281,13 +151,18 @@
             </ul>
         </div>
 
-        <!-- 项目 2 -->
+        <!-- 项目 2: AI Companion -->
         <div class="project-item">
             <div class="project-header">
                 <span class="project-title">🤖 <span data-i18n="project2_title">AI Companion — Roleplay & Memory System</span></span>
                 <span class="project-date">2026.03 - 2026.04</span>
             </div>
-            <div class="tech-stack"><span data-i18n="tech">Tech</span>: Python, Streamlit, DeepSeek API, JSON</div>
+            <div class="tech-stack">
+                <span class="tech-tag python">Python</span>
+                <span class="tech-tag streamlit">Streamlit</span>
+                <span class="tech-tag deepseek">DeepSeek API</span>
+                <span class="tech-tag json">JSON</span>
+            </div>
             <ul class="project-desc">
                 <li data-i18n="project2_1">Built an AI chatbot with <strong>persistent memory</strong> and emotional roleplay capabilities.</li>
                 <li data-i18n="project2_2">Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.</li>
@@ -295,10 +170,66 @@
                 <li data-i18n="project2_4">Achieved millisecond-level streaming response and seamless context switching.</li>
             </ul>
         </div>
+
+        <!-- 项目 3: Jigsaw Toxicity Prediction -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-title">🔍 <span data-i18n="project3_title">Jigsaw Toxicity Prediction — NLP Classification</span></span>
+                <span class="project-date">2026.04 - 2026.06</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-tag python">Python</span>
+                <span class="tech-tag pytorch">PyTorch</span>
+                <span class="tech-tag nlp">NLP</span>
+            </div>
+            <ul class="project-desc">
+                <li data-i18n="project3_1">Built a <strong>text toxicity classifier</strong> using Transformer-based models.</li>
+                <li data-i18n="project3_2">Processed and analyzed large-scale <strong>NLP datasets</strong> for sentiment analysis.</li>
+                <li data-i18n="project3_3">Implemented multi-label classification for various toxicity types.</li>
+                <li data-i18n="project3_4">Achieved competitive performance on Kaggle Jigsaw competition benchmarks.</li>
+            </ul>
+            <a class="project-link" href="https://github.com/lik-586/Jigsaw_Toxicity_Prediction" target="_blank" data-i18n="github_link">View on GitHub →</a>
+        </div>
+
+        <!-- 项目 4: PyTorch Test -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-title">🔥 <span data-i18n="project4_title">PyTorch Deep Learning Lab</span></span>
+                <span class="project-date">2026.03 - 2026.06</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-tag python">Python</span>
+                <span class="tech-tag pytorch">PyTorch</span>
+            </div>
+            <ul class="project-desc">
+                <li data-i18n="project4_1">Experimented with various <strong>neural network architectures</strong> and training techniques.</li>
+                <li data-i18n="project4_2">Implemented custom <strong>loss functions</strong> and optimization strategies.</li>
+                <li data-i18n="project4_3">Explored <strong>model optimization</strong> techniques including quantization and pruning.</li>
+            </ul>
+            <a class="project-link" href="https://github.com/lik-586/pytorch_test" target="_blank" data-i18n="github_link">View on GitHub →</a>
+        </div>
+
+        <!-- 项目 5: EM Classification App -->
+        <div class="project-item">
+            <div class="project-header">
+                <span class="project-title">📊 <span data-i18n="project5_title">EM Classification App — Streamlit Visualization</span></span>
+                <span class="project-date">2026.06</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-tag python">Python</span>
+                <span class="tech-tag streamlit">Streamlit</span>
+            </div>
+            <ul class="project-desc">
+                <li data-i18n="project5_1">Built an interactive <strong>Expectation-Maximization</strong> algorithm visualization.</li>
+                <li data-i18n="project5_2">Implemented real-time <strong>clustering visualization</strong> with Streamlit.</li>
+                <li data-i18n="project5_3">Designed intuitive UI for parameter tuning and result exploration.</li>
+            </ul>
+            <a class="project-link" href="https://github.com/lik-586/em-classification-app" target="_blank" data-i18n="github_link">View on GitHub →</a>
+        </div>
     </section>
 
     <!-- 教育背景 -->
-    <section class="edu-section">
+    <section class="edu-section fade-in-section">
         <h3 data-i18n="education">Education</h3>
         <div class="edu-item">
             <strong data-i18n="collage">Northeastern University at Qinhuangdao</strong> | B.S. in <span data-i18n="major">Computer Science</span>
@@ -309,158 +240,19 @@
     </section>
 
     <!-- 底部格言 -->
-    <blockquote>
+    <blockquote class="fade-in-section">
         "Attempt to achieve any sustainable behavior through automated means."
     </blockquote>
 
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+
     <footer style="text-align: center; color: #959da5; font-size: 0.8rem; margin-top: 40px; padding-bottom: 20px;">
-        © 2026 lk. Built with simple HTML.
+        © 2026 lk. Built with simple HTML, CSS & JavaScript.
     </footer>
 
-    <!-- 打字机脚本 -->
-    <script>
-        // 打字机效果
-        const typeWriterElement = document.getElementById('typewriter');
-        let idx = 0;
-        let typeWriterTimeout = null;
-
-        function startTypeWriter(text) {
-            // 清除之前的定时器
-            if (typeWriterTimeout) {
-                clearTimeout(typeWriterTimeout);
-            }
-            
-            typeWriterElement.textContent = '';
-            idx = 0;
-            typeWriterElement.style.borderRight = '2px solid var(--primary-color)';
-            typeWriterElement.style.animation = 'blink-caret 0.75s step-end infinite';
-            
-            function type() {
-                if (idx < text.length) {
-                    typeWriterElement.textContent += text.charAt(idx);
-                    idx++;
-                    typeWriterTimeout = setTimeout(type, 100);
-                } else {
-                    typeWriterElement.style.borderRight = 'none';
-                    typeWriterElement.style.animation = 'none';
-                }
-            }
-            type();
-        }
-
-        // 语言切换功能
-        const translations = {
-            en: {
-                subtitle: 'Northeastern University at Qinhuangdao | C++ & Python Enthusiast | OS Kernel & AI Developer',
-                seeking: '👋 I am seeking internships in Backend or AI Engineering.',
-                location: '📍 Qinhuangdao / Remote',
-                intro: 'I\'m a Junior at <strong>NEUQ</strong> passionate about digging into system internals and LLMs.',
-                intro1: 'Built an <strong>OS Kernel Simulator</strong> with C++ focusing on concurrency.',
-                intro2: 'Developed an <strong>AI Companion</strong> with persistent memory using DeepSeek.',
-                intro3: 'Open to internships. Feel free to email me!',
-                links: 'Links',
-                email: 'Email',
-                projects: 'Featured Projects',
-                tech: 'Tech',
-                project1_title: 'OS Kernel Simulator — High Concurrency File System',
-                project1_1: 'Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.',
-                project1_2: 'Implemented <strong>FAT32</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.',
-                project1_3: 'Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.',
-                project1_4: 'Solved race conditions in multi-threading via Semaphores and Mutex Locks.',
-                project2_title: 'AI Companion — Roleplay & Memory System',
-                project2_1: 'Built an AI chatbot with <strong>persistent memory</strong> and emotional roleplay capabilities.',
-                project2_2: 'Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.',
-                project2_3: 'Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.',
-                project2_4: 'Achieved millisecond-level streaming response and seamless context switching.',
-                education: 'Education',
-                collage: 'Northeastern University at Qinhuangdao',
-                major: 'Computer Science',
-                courses: 'Core Courses:',
-                course_list: 'Data Structures (84), OS Principles (83), Compilation (83), Java (90)'
-            },
-            zh: {
-                subtitle: '东北大学秦皇岛分校| C++ & Python 爱好者 | 操作系统内核 & AI 开发者',
-                seeking: '👋 正在寻找后端或AI工程实习岗位。',
-                location: '📍 秦皇岛 / 远程',
-                intro: '我是<strong>东北大学</strong>大三学生，热衷于探索系统底层和大语言模型。',
-                intro1: '使用 C++ 开发了<strong>操作系统内核模拟器</strong>，专注于并发编程。',
-                intro2: '基于 DeepSeek 开发了具有持久记忆的<strong>AI 伴侣</strong>。',
-                intro3: '欢迎实习机会，随时联系我！',
-                links: '链接',
-                email: '邮箱',
-                projects: '精选项目',
-                tech: '技术栈',
-                project1_title: '操作系统内核模拟器 — 高并发文件系统',
-                project1_1: '设计了简化的操作系统内核，包含<strong>文件管理</strong>和进程调度功能。',
-                project1_2: '实现了<strong>FAT32</strong>算法和内存映射（<code>mmap</code>）模拟磁盘。',
-                project1_3: '通过<strong>LRU 缓冲池</strong>和脏页回写机制，I/O 效率提升约<strong>40%</strong>。',
-                project1_4: '使用信号量和互斥锁解决了多线程中的竞争条件问题。',
-                project2_title: 'AI 伴侣 — 角色扮演与记忆系统',
-                project2_1: '构建了具有<strong>持久记忆</strong>和情感角色扮演能力的 AI 聊天机器人。',
-                project2_2: '设计了动态<strong>System Prompt</strong>机制实现个性化注入。',
-                project2_3: '使用本地<strong>JSON 存储</strong>实现聊天记录 CRUD 操作。',
-                project2_4: '实现毫秒级流式响应和无上下文切换。',
-                education: '教育背景',
-                collage: '东北大学秦皇岛分校',
-                major: '计算机科学与技术',
-                courses: '核心课程：',
-                course_list: '数据结构 (84), 操作系统原理 (83), 编译原理 (83), Java (90)'
-            }
-        };
-
-        let currentLang = 'en'; // 默认英文
-
-        function switchLang(lang) {
-            currentLang = lang;
-            // 移除 localStorage 记忆功能
-            
-            // 清除当前的打字机定时器
-            if (typeWriterTimeout) {
-                clearTimeout(typeWriterTimeout);
-                typeWriterTimeout = null;
-            }
-            
-            // 更新按钮状态
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // 更新页面内容
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            
-            // 重新启动打字机
-            const typeText = lang === 'zh' ? "你好，我是 lk，计算机专业学生。" : "Hi, I'm lk. CS Undergraduate.";
-            startTypeWriter(typeText);
-        }
-
-        // 页面加载时设置语言
-        if (currentLang !== 'en') {
-            // 默认中文
-            const zhBtn = document.querySelector('.lang-btn');
-            const enBtn = document.querySelectorAll('.lang-btn')[1];
-            zhBtn.classList.add('active');
-            enBtn.classList.remove('active');
-            
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations.zh[key]) {
-                    el.innerHTML = translations.zh[key];
-                }
-            });
-            
-            // 启动中文打字机
-            setTimeout(() => startTypeWriter("你好，我是 lk，计算机专业学生。"), 100);
-        } else {
-            // 启动英文打字机
-            setTimeout(() => startTypeWriter("Hi, I'm lk. CS Undergraduate."), 100);
-        }
-    </script>
-
+    <!-- 脚本文件 -->
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

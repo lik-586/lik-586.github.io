@@ -1,0 +1,370 @@
+/* --- 全局样式 & 字体 --- */
+:root {
+    --primary-color: #d1684e;
+    --text-main: #24292e;
+    --text-gray: #586069;
+    --bg-color: #ffffff;
+    --bg-code: #f6f8fa;
+    --border-color: #e1e4e8;
+    --hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+a { color: var(--primary-color); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { color: var(--text-main); font-weight: 600; }
+
+/* --- 头部区域 --- */
+header { 
+    margin-bottom: 30px; 
+    text-align: center;
+}
+
+.avatar-container {
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+}
+
+.typewriter-container {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    width: fit-content;
+    margin: 0 auto;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+.subtitle {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: var(--primary-color);
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+header p { margin-top: 12px; }
+
+.status-badges {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background-color: var(--bg-code);
+    color: var(--text-gray);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.lang-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    transition: all var(--transition-speed);
+}
+
+.lang-btn:hover {
+    background: var(--bg-code);
+    color: var(--text-main);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- 链接标签区域 --- */
+.links-section h3, .projects-section h3, .edu-section h3, .skills-section h3 {
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.tag-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.tag-link {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.tag-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+.tag-link a {
+    display: flex;
+    text-decoration: none;
+}
+
+.tag {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    color: white;
+}
+
+/* 颜色模拟参考图 */
+.t-mail { background-color: #24292e; }
+.t-email { background-color: #cb2431; }
+.t-gh { background-color: #24292e; }
+.t-gh-val { background-color: #0366d6; }
+
+/* --- 项目列表 --- */
+.project-item {
+    margin-bottom: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.project-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.project-date {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    font-family: monospace;
+}
+
+.tech-stack {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+    font-family: monospace;
+    background: var(--bg-code);
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.tech-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.tech-tag.python { background-color: #3572A5; color: white; }
+.tech-tag.cpp { background-color: #f34b7d; color: white; }
+.tech-tag.pytorch { background-color: #ee4c2c; color: white; }
+.tech-tag.nlp { background-color: #3776ab; color: white; }
+.tech-tag.streamlit { background-color: #ff4b4b; color: white; }
+.tech-tag.linux { background-color: #fcc624; color: #333; }
+.tech-tag.fat32 { background-color: #555; color: white; }
+.tech-tag.lru { background-color: #6b5b95; color: white; }
+.tech-tag.deepseek { background-color: #4285f4; color: white; }
+.tech-tag.json { background-color: #f5de19; color: #333; }
+
+.project-desc li {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+code {
+    background-color: var(--bg-code);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #d73a49;
+}
+
+/* --- 教育背景 --- */
+.edu-item { margin-bottom: 15px; }
+.course-list { font-size: 0.9rem; color: var(--text-gray); margin-top: 5px; }
+
+/* --- 技能区域 --- */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.skill-tag {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: var(--bg-code);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed);
+}
+
+.skill-tag:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- 引用 --- */
+blockquote {
+    border-left: 4px solid var(--border-color);
+    padding-left: 16px;
+    margin: 30px 0;
+    color: var(--text-gray);
+    font-style: italic;
+}
+
+/* --- 返回顶部按钮 --- */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-speed), visibility var(--transition-speed);
+    border: none;
+    font-size: 1.2rem;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* --- 动画 --- */
+@keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: var(--primary-color); } }
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* 滚动动画 */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 响应式 --- */
+@media (max-width: 1200px) {
+    body { max-width: 800px; }
+}
+
+@media (max-width: 768px) {
+    body { margin: 30px auto; padding: 0 15px; }
+    .typewriter-container { font-size: 1.1rem; }
+    .avatar { width: 100px; height: 100px; }
+}
+
+@media (max-width: 480px) {
+    body { margin: 20px auto; padding: 0 10px; }
+    .typewriter-container { font-size: 1rem; width: 100%; }
+    .project-header { flex-direction: column; }
+    .project-date { margin-top: 4px; }
+    .lang-switch { 
+        position: relative; 
+        top: 0; 
+        right: 0; 
+        justify-content: center; 
+        margin-bottom: 20px;
+    }
+    .avatar { width: 80px; height: 80px; }
+    .back-to-top { bottom: 10px; right: 10px; width: 35px; height: 35px; }
+}
