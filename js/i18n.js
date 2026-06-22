@@ -25,10 +25,10 @@ const translations = {
         
         // 项目 1: OS Kernel Simulator
         project1_title: 'OS Kernel Simulator — High Concurrency File System',
-        project1_1: 'Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.',
-        project1_2: 'Implemented <strong>FAT32</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.',
-        project1_3: 'Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.',
-        project1_4: 'Solved race conditions in multi-threading via Semaphores and Mutex Locks.',
+        project1_1: 'Designed <strong>DiskManager</strong> using POSIX <code>mmap</code>/<code>msync</code> for physical disk simulation.',
+        project1_2: 'Implemented <strong>FAT</strong> file system with LRU buffer pool (16 pages, 64B/page).',
+        project1_3: 'Built <strong>MessageQueue</strong> and priority-based <strong>ProcessScheduler</strong> using semaphores.',
+        project1_4: 'Real-time <strong>MonitorPanel</strong> for FAT table, buffer pool, and disk usage visualization.',
         
         // 项目 2: AI Companion
         project2_title: 'AI Companion — Roleplay & Memory System',
@@ -88,10 +88,10 @@ const translations = {
         
         // 项目 1: OS Kernel Simulator
         project1_title: '操作系统内核模拟器 — 高并发文件系统',
-        project1_1: '设计了简化的操作系统内核，包含<strong>文件管理</strong>和进程调度功能。',
-        project1_2: '实现了<strong>FAT32</strong>算法和内存映射（<code>mmap</code>）模拟磁盘。',
-        project1_3: '通过<strong>LRU 缓冲池</strong>和脏页回写机制，I/O 效率提升约<strong>40%</strong>。',
-        project1_4: '使用信号量和互斥锁解决了多线程中的竞争条件问题。',
+        project1_1: '使用 POSIX <code>mmap</code>/<code>msync</code> 设计<strong>DiskManager</strong>实现物理磁盘模拟。',
+        project1_2: '实现<strong>FAT</strong>文件系统，包含 LRU 缓冲池（16 页，每页 64B）。',
+        project1_3: '构建<strong>MessageQueue</strong>和基于优先级的<strong>ProcessScheduler</strong>，使用信号量同步。',
+        project1_4: '实时<strong>MonitorPanel</strong>监控面板，可视化 FAT 表、缓冲池和磁盘使用率。',
         
         // 项目 2: AI Companion
         project2_title: 'AI 伴侣 — 角色扮演与记忆系统',
