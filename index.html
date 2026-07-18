@@ -4,36 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta 标签 -->
-    <meta name="description" content="lk - CS Undergraduate at NEUQ. Passionate about OS Kernel, AI/ML, NLP, and System Programming. Seeking Backend or AI Engineering internships.">
-    <meta name="keywords" content="lk, NEUQ, Northeastern University, Computer Science, OS Kernel, AI, Machine Learning, NLP, Python, C++, PyTorch, Deep Learning, Backend Engineer">
+    <meta name="description" content="lk - CS Undergraduate at NEUQ. Passionate about AI/ML, NLP, and Game Operations. Seeking Backend, AI Engineering or Game Operation internships.">
+    <meta name="keywords" content="lk, NEUQ, Northeastern University, Computer Science, AI, Machine Learning, NLP, Game Operation, Python, C++, PyTorch">
     <meta name="author" content="lk">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph 标签（社交媒体分享） -->
-    <meta property="og:title" content="lk | CS Undergraduate - OS Kernel & AI Developer">
-    <meta property="og:description" content="CS Student at NEUQ passionate about OS Kernel, AI/ML, and NLP. Seeking Backend or AI Engineering internships.">
+    <meta property="og:title" content="lk | CS Undergraduate - Developer & Game Operations">
+    <meta property="og:description" content="CS Student at NEUQ passionate about AI/ML, and Game Operations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lik-586.github.io">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/271217861?v=4">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="zh_CN">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="lk | CS Undergraduate">
-    <meta name="twitter:description" content="CS Student passionate about OS Kernel and AI Development">
+    <meta name="twitter:description" content="CS Student passionate about Development and Game Operations">
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/271217861?v=4">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="https://avatars.githubusercontent.com/u/271217861?v=4">
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/271217861?v=4">
     
-    <!-- 样式文件 -->
     <link rel="stylesheet" href="css/style.css">
     
-    <title>lk | CS Undergraduate - OS Kernel & AI Developer</title>
+    <title>lk | CS Undergraduate - Developer & Game Operations</title>
     
-    <!-- 结构化数据（JSON-LD） -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -46,214 +40,404 @@
             "@type": "CollegeOrUniversity",
             "name": "Northeastern University at Qinhuangdao"
         },
-        "knowsAbout": ["Operating Systems", "Machine Learning", "Natural Language Processing", "C++", "Python", "PyTorch"]
+        "knowsAbout": ["Operating Systems", "Machine Learning", "Natural Language Processing", "Game Operations", "C++", "Python", "PyTorch"]
     }
     </script>
 </head>
 <body>
-    <!-- 语言切换按钮 -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="navbar" id="navbar">
+        <ul class="nav-links">
+            <li><a href="#intro" class="nav-link" data-tab="general" data-i18n="nav_intro">About</a></li>
+            <li><a href="#link" class="nav-link" data-tab="general" data-i18n="nav_contact">Link</a></li>
+            <li><a href="#skills" class="nav-link" data-tab="general" data-i18n="nav_skills">Skills</a></li>
+            <li><a href="#tech-projects" class="nav-link" data-tab="tech" data-i18n="nav_tech_projects">Tech Projects</a></li>
+            <li><a href="#tech-skills" class="nav-link" data-tab="tech" data-i18n="nav_tech_skills">Tech Skills</a></li>
+            <li><a href="#operation-experience" class="nav-link" data-tab="operation" data-i18n="nav_operation_experience">Op Experience</a></li>
+            <li><a href="#operation-projects" class="nav-link" data-tab="operation" data-i18n="nav_operation_projects">Op Projects</a></li>
+            <li><a href="#operation-skills" class="nav-link" data-tab="operation" data-i18n="nav_operation_skills">Op Skills</a></li>
+            <li><a href="#education" class="nav-link" data-tab="general" data-i18n="nav_education">Education</a></li>
+        </ul>
+    </nav>
+
     <div class="lang-switch">
         <button class="lang-btn" onclick="switchLang('zh', this)">中文</button>
         <button class="lang-btn active" onclick="switchLang('en', this)">English</button>
     </div>
 
-    <!-- 头部介绍 -->
-    <header class="fade-in-section">
-        <!-- 头像 -->
-        <div class="avatar-container">
-            <img class="avatar" src="https://avatars.githubusercontent.com/u/271217861?v=4" alt="lk's avatar">
-        </div>
-        
-        <!-- 打字机标题 -->
-        <div class="typewriter-container" id="typewriter"></div>
-
-        <!-- 副标题 -->
-        <div class="subtitle" data-i18n="subtitle">
-            Northeastern University at Qinhuangdao | C++ & Python Enthusiast | OS Kernel & AI Developer
-        </div>
-        <p data-i18n="seeking">👋 I am seeking internships in Backend or AI Engineering.</p>
-
-        <!-- 状态徽章 -->
-        <div class="status-badges">
-            <div class="badge">🌱 GPA 2.84/5.0</div>
-            <div class="badge" data-i18n="location">📍 Qinhuangdao / Remote</div>
-        </div>
-    </header>
-
-    <!-- 简短自我介绍 -->
-    <section class="fade-in-section">
-        <p data-i18n="intro">I'm a Junior at <strong>NEUQ</strong> passionate about digging into system internals and LLMs.</p>
-        <ul>
-            <li data-i18n="intro1">Built an <strong>OS Kernel Simulator</strong> with C++ focusing on concurrency.</li>
-            <li data-i18n="intro2">Developed an <strong>AI Companion</strong> with persistent memory using DeepSeek.</li>
-            <li data-i18n="intro3">Exploring <strong>NLP/ML</strong> through toxicity prediction and classification projects.</li>
-            <li data-i18n="intro4">Open to internships. Feel free to email me!</li>
-        </ul>
-    </section>
-
-    <!-- 链接区域 -->
-    <section class="links-section fade-in-section">
-        <h3 data-i18n="links">Links</h3>
-        <div class="tag-container">
-            <div class="tag-link">
-                <a href="mailto:lik586@qq.com">
-                    <span class="tag t-mail" data-i18n="email">Email</span>
-                    <span class="tag t-email">lik586@qq.com</span>
-                </a>
-            </div>
-            <div class="tag-link">
-                <a href="https://github.com/lik-586" target="_blank">
-                    <span class="tag t-gh">GitHub</span>
-                    <span class="tag t-gh-val">lik-586</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 技能区域 -->
-    <section class="skills-section fade-in-section">
-        <h3 data-i18n="skills">Skills</h3>
-        <div class="skills-container">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">NLP</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Streamlit</span>
-            <span class="skill-tag">DeepSeek API</span>
-            <span class="skill-tag">Operating Systems</span>
-            <span class="skill-tag">Machine Learning</span>
-        </div>
-    </section>
-
-    <!-- 精选项目 -->
-    <section class="projects-section fade-in-section">
-        <h3 data-i18n="projects">Featured Projects</h3>
-
-        <!-- 项目 1: OS Kernel Simulator -->
-        <div class="project-item">
-            <div class="project-header">
-                <span class="project-title">📂 <span data-i18n="project1_title">OS Kernel Simulator — High Concurrency File System</span></span>
-                <span class="project-date">2025.12 - 2026.01</span>
-            </div>
-            <div class="tech-stack">
-                <span class="tech-tag cpp">C++20</span>
-                <span class="tech-tag linux">mmap/msync</span>
-                <span class="tech-tag fat32">FAT</span>
-                <span class="tech-tag lru">LRU</span>
-            </div>
-            <ul class="project-desc">
-                <li data-i18n="project1_1">Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.</li>
-                <li data-i18n="project1_2">Implemented <strong>FAT</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.</li>
-                <li data-i18n="project1_3">Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.</li>
-                <li data-i18n="project1_4">Solved race conditions in multi-threading via Semaphores and Mutex Locks.</li>
-            </ul>
-            <a class="project-link" href="https://github.com/lik-586/OS-Kernel-Simulator" target="_blank" data-i18n="github_link">View on GitHub →</a>
+    <main class="main-content">
+        <div class="section-tabs">
+            <button class="tab-btn active" data-tab="general" data-i18n="tab_general">🔹 General</button>
+            <button class="tab-btn" data-tab="tech" data-i18n="tab_tech">💻 Tech</button>
+            <button class="tab-btn" data-tab="operation" data-i18n="tab_operation">🎮 Operation</button>
         </div>
 
-        <!-- 项目 2: AI Companion -->
-        <div class="project-item">
-            <div class="project-header">
-                <span class="project-title">🤖 <span data-i18n="project2_title">AI Companion — Roleplay & Memory System</span></span>
-                <span class="project-date">2026.03 - 2026.04</span>
-            </div>
-            <div class="tech-stack">
-                <span class="tech-tag python">Python</span>
-                <span class="tech-tag streamlit">Streamlit</span>
-                <span class="tech-tag deepseek">DeepSeek API</span>
-                <span class="tech-tag json">JSON</span>
-            </div>
-            <ul class="project-desc">
-                <li data-i18n="project2_1">Built an AI chatbot with <strong>persistent memory</strong> and emotional roleplay capabilities.</li>
-                <li data-i18n="project2_2">Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.</li>
-                <li data-i18n="project2_3">Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.</li>
-                <li data-i18n="project2_4">Achieved millisecond-level streaming response and seamless context switching.</li>
-            </ul>
-            <a class="project-link" href="https://github.com/lik-586/AI-Companion" target="_blank" data-i18n="github_link">View on GitHub →</a>
+        <div id="general-section" class="tab-section active">
+            <section id="intro" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_intro">About</h2>
+                
+                <div class="avatar-container">
+                    <img class="avatar" src="https://avatars.githubusercontent.com/u/271217861?v=4" alt="lk's avatar">
+                </div>
+                
+                <div class="typewriter-container" id="typewriter"></div>
+
+                <div class="subtitle" data-i18n="subtitle">
+                    Northeastern University at Qinhuangdao | C++ & Python Developer | AI & Game Operations
+                </div>
+                <p data-i18n="seeking">👋 I am seeking internships in Backend, AI Engineering or Game Operations.</p>
+
+                <div class="status-badges">
+                    <div class="badge">🌱 GPA 2.84/5.0</div>
+                    <div class="badge" data-i18n="location">📍 Qinhuangdao / Remote</div>
+                    <div class="badge" data-i18n="available">📅 Available July</div>
+                </div>
+
+                <div class="intro-content">
+                    <p data-i18n="intro">I'm a Junior at <strong>NEUQ</strong> with a dual focus on <strong>software development</strong> and <strong>game operations</strong>. Passionate about digging into system internals, LLMs, and building community engagement.</p>
+                    <ul>
+                        <li data-i18n="intro1"><strong>Technical Skills:</strong> Built an OS Kernel Simulator with C++, developed AI Companion with DeepSeek, explored NLP through toxicity prediction projects.</li>
+                        <li data-i18n="intro2"><strong>Game Operations:</strong> Created gaming community content, operated class WeChat public account (70+ articles), managed hometown group (160+ members).</li>
+                        <li data-i18n="intro3"><strong>Content Creation:</strong> Multi-platform content distribution on Bilibili, Xiaohongshu, NGA; proficient in Canva, PS, PR, Excel, SQL, Python.</li>
+                        <li data-i18n="intro4"><strong>Career Goal:</strong> Combining technical background with operations expertise to drive product growth and user engagement.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="link" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_contact">Link</h2>
+                <div class="tag-container">
+                    <div class="tag-link">
+                        <a href="mailto:lik586@qq.com">
+                            <span class="tag t-mail" data-i18n="email">Email</span>
+                            <span class="tag t-email">lik586@qq.com</span>
+                        </a>
+                    </div>
+                    <div class="tag-link">
+                        <a href="https://github.com/lik-586" target="_blank">
+                            <span class="tag t-gh">GitHub</span>
+                            <span class="tag t-gh-val">lik-586</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_skills">Comprehensive Skills</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Streamlit</span>
+                    <span class="skill-tag">DeepSeek API</span>
+                    <span class="skill-tag">Operating Systems</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Content Creation</span>
+                    <span class="skill-tag">Community Management</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">PS/PR</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Tableau</span>
+                </div>
+            </section>
+
+            <section id="education" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="education">Education</h2>
+                <div class="edu-item">
+                    <strong data-i18n="collage">Northeastern University at Qinhuangdao</strong> | B.S. in <span data-i18n="major">Computer Science</span>
+                    <div class="course-list">
+                        <strong data-i18n="courses">Core Courses:</strong> <span data-i18n="course_list">Data Structures (84), OS Principles (83), Compilation (83), Java (90)</span>.
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block fade-in-section">
+                <blockquote>
+                    "Attempt to achieve any sustainable behavior through automated means."
+                </blockquote>
+            </section>
         </div>
 
-        <!-- 项目 3: Jigsaw Toxicity Prediction -->
-        <div class="project-item">
-            <div class="project-header">
-                <span class="project-title">🔍 <span data-i18n="project3_title">Jigsaw Toxicity Prediction — NLP Classification</span></span>
-                <span class="project-date">2026.04 - 2026.06</span>
-            </div>
-            <div class="tech-stack">
-                <span class="tech-tag python">Python</span>
-                <span class="tech-tag pytorch">PyTorch</span>
-                <span class="tech-tag nlp">NLP</span>
-            </div>
-            <ul class="project-desc">
-                <li data-i18n="project3_1">Built a <strong>text toxicity classifier</strong> using Transformer-based models.</li>
-                <li data-i18n="project3_2">Processed and analyzed large-scale <strong>NLP datasets</strong> for sentiment analysis.</li>
-                <li data-i18n="project3_3">Implemented multi-label classification for various toxicity types.</li>
-                <li data-i18n="project3_4">Achieved competitive performance on Kaggle Jigsaw competition benchmarks.</li>
-            </ul>
-            <a class="project-link" href="https://github.com/lik-586/Jigsaw_Toxicity_Prediction" target="_blank" data-i18n="github_link">View on GitHub →</a>
+        <div id="tech-section" class="tab-section">
+            <section id="tech-projects" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_tech_projects">Technical Projects</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">📂 <span data-i18n="project1_title">OS Kernel Simulator — High Concurrency File System</span></span>
+                        <span class="project-date">2025.12 - 2026.01</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag cpp">C++20</span>
+                        <span class="tech-tag linux">mmap/msync</span>
+                        <span class="tech-tag fat32">FAT</span>
+                        <span class="tech-tag lru">LRU</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="project1_1">Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.</li>
+                        <li data-i18n="project1_2">Implemented <strong>FAT</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.</li>
+                        <li data-i18n="project1_3">Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.</li>
+                        <li data-i18n="project1_4">Solved race conditions in multi-threading via Semaphores and Mutex Locks.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/lik-586/OS-Kernel-Simulator" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🤖 <span data-i18n="project2_title">AI Companion — Roleplay & Memory System</span></span>
+                        <span class="project-date">2026.03 - 2026.04</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag python">Python</span>
+                        <span class="tech-tag streamlit">Streamlit</span>
+                        <span class="tech-tag deepseek">DeepSeek API</span>
+                        <span class="tech-tag json">JSON</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="project2_1">Built an AI chatbot with <strong>persistent memory</strong> and emotional roleplay capabilities.</li>
+                        <li data-i18n="project2_2">Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.</li>
+                        <li data-i18n="project2_3">Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.</li>
+                        <li data-i18n="project2_4">Achieved millisecond-level streaming response and seamless context switching.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/lik-586/AI-Companion" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🔍 <span data-i18n="project3_title">Jigsaw Toxicity Prediction — NLP Classification</span></span>
+                        <span class="project-date">2026.04 - 2026.06</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag python">Python</span>
+                        <span class="tech-tag pytorch">PyTorch</span>
+                        <span class="tech-tag nlp">NLP</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="project3_1">Built a <strong>text toxicity classifier</strong> using Transformer-based models.</li>
+                        <li data-i18n="project3_2">Processed and analyzed large-scale <strong>NLP datasets</strong> for sentiment analysis.</li>
+                        <li data-i18n="project3_3">Implemented multi-label classification for various toxicity types.</li>
+                        <li data-i18n="project3_4">Achieved competitive performance on Kaggle Jigsaw competition benchmarks.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/lik-586/Jigsaw_Toxicity_Prediction" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🔥 <span data-i18n="project4_title">PyTorch Deep Learning Lab</span></span>
+                        <span class="project-date">2026.03 - 2026.06</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag python">Python</span>
+                        <span class="tech-tag pytorch">PyTorch</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="project4_1">Experimented with various <strong>neural network architectures</strong> and training techniques.</li>
+                        <li data-i18n="project4_2">Implemented custom <strong>loss functions</strong> and optimization strategies.</li>
+                        <li data-i18n="project4_3">Explored <strong>model optimization</strong> techniques including quantization and pruning.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/lik-586/pytorch_test" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">📊 <span data-i18n="project5_title">EM Classification App — Streamlit Visualization</span></span>
+                        <span class="project-date">2026.06</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag python">Python</span>
+                        <span class="tech-tag streamlit">Streamlit</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="project5_1">Built an interactive <strong>Expectation-Maximization</strong> algorithm visualization.</li>
+                        <li data-i18n="project5_2">Implemented real-time <strong>clustering visualization</strong> with Streamlit.</li>
+                        <li data-i18n="project5_3">Designed intuitive UI for parameter tuning and result exploration.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/lik-586/em-classification-app" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                </div>
+            </section>
+
+            <section id="tech-skills" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_tech_skills">Technical Skills</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Streamlit</span>
+                    <span class="skill-tag">DeepSeek API</span>
+                    <span class="skill-tag">Operating Systems</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Data Structures</span>
+                    <span class="skill-tag">Algorithm</span>
+                </div>
+            </section>
         </div>
 
-        <!-- 项目 4: PyTorch Test -->
-        <div class="project-item">
-            <div class="project-header">
-                <span class="project-title">🔥 <span data-i18n="project4_title">PyTorch Deep Learning Lab</span></span>
-                <span class="project-date">2026.03 - 2026.06</span>
-            </div>
-            <div class="tech-stack">
-                <span class="tech-tag python">Python</span>
-                <span class="tech-tag pytorch">PyTorch</span>
-            </div>
-            <ul class="project-desc">
-                <li data-i18n="project4_1">Experimented with various <strong>neural network architectures</strong> and training techniques.</li>
-                <li data-i18n="project4_2">Implemented custom <strong>loss functions</strong> and optimization strategies.</li>
-                <li data-i18n="project4_3">Explored <strong>model optimization</strong> techniques including quantization and pruning.</li>
-            </ul>
-            <a class="project-link" href="https://github.com/lik-586/pytorch_test" target="_blank" data-i18n="github_link">View on GitHub →</a>
+        <div id="operation-section" class="tab-section">
+            <section id="operation-experience" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_operation_experience">Operation Experience</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🎮 <span data-i18n="op_exp1_title">Zenless Zone Zero Content Creation</span></span>
+                        <span class="project-date">2026.07</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag op-mihoyo">Mihoyo Community</span>
+                        <span class="tech-tag op-bilibili">Bilibili</span>
+                        <span class="tech-tag op-xiaohongshu">Xiaohongshu</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="op_exp1_1">Participated in official creator incentive program, wrote "Potential Image In-depth Analysis" design article.</li>
+                        <li data-i18n="op_exp1_2">Analyzed character lifecycle management system from three dimensions: mechanism rework, version operation, player feedback.</li>
+                        <li data-i18n="op_exp1_3">Published on Mihoyo Community and distributed to Bilibili, Xiaohongshu. Demonstrated multi-platform content distribution capability.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🎮 <span data-i18n="op_exp4_title">Honkai: Star Rail Content Creation</span></span>
+                        <span class="project-date">2026.07</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag op-mihoyo">Mihoyo Community</span>
+                        <span class="tech-tag op-bilibili">Bilibili</span>
+                        <span class="tech-tag op-xiaohongshu">Xiaohongshu</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="op_exp4_1">Obtained "Evolution Test" beta qualification through official recruitment channels.</li>
+                        <li data-i18n="op_exp4_2">Wrote attribute system design analysis article from emotional value, UGC ecosystem, and multi-push perspectives.</li>
+                        <li data-i18n="op_exp4_3">Proposed data tracking optimization suggestions. Articles distributed across three platforms with 5000+ views.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">📝 <span data-i18n="op_exp2_title">Class WeChat Public Account Operator</span></span>
+                        <span class="project-date">2023.09 - Present</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag op-content">Content Writing</span>
+                        <span class="tech-tag op-event">Activity Planning</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="op_exp2_1">Published <strong>70+ original articles</strong> covering activity push, league day records, class announcements.</li>
+                        <li data-i18n="op_exp2_2">Pushed outdoor league day articles to college-level public account with 500+ views.</li>
+                        <li data-i18n="op_exp2_3">Mastered complete content production chain from topic selection to layout and publishing.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">👥 <span data-i18n="op_exp3_title">School Hometown Community Manager</span></span>
+                        <span class="project-date">2024.06 - 2025.06</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag op-content">Community Building</span>
+                        <span class="tech-tag op-event">Event Organization</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="op_exp3_1">Managed Shaanxi hometown group (160 members), planned 1 large welcome party and multiple small activities.</li>
+                        <li data-i18n="op_exp3_2">Responsible for activity promotion, personnel coordination and on-site execution.</li>
+                        <li data-i18n="op_exp3_3">Maintained community activity through regular topic interactions, improving member stickiness and sense of belonging.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="operation-projects" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_operation_projects">Campus Experience</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🎯 <span data-i18n="op_proj1_title">Campus Publicity Committee</span></span>
+                        <span class="project-date">2023.09 - Present</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag op-generic">Publicity</span>
+                        <span class="tech-tag op-content">Content Creation</span>
+                        <span class="tech-tag op-event">Event Planning</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="op_proj1_1">Published <strong>100+ promotional articles</strong> for class and school activities.</li>
+                        <li data-i18n="op_proj1_2">Planned and executed <strong>10+ campus events</strong>, including sports meetings and cultural festivals.</li>
+                        <li data-i18n="op_proj1_3">Developed effective publicity strategies, increasing event attendance rates.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🤝 <span data-i18n="op_proj2_title">Youth Volunteer Association Officer</span></span>
+                        <span class="project-date">2023.09 - 2025.06</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag op-generic">Volunteer Management</span>
+                        <span class="tech-tag op-event">Event Coordination</span>
+                        <span class="tech-tag op-content">Publicity</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="op_proj2_1">Organized <strong>30+ volunteer activities</strong>, recruiting and managing volunteer teams.</li>
+                        <li data-i18n="op_proj2_2">Responsible for activity publicity and documentation, enhancing association visibility.</li>
+                        <li data-i18n="op_proj2_3">Participated in community service projects, contributing to social welfare.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="operation-skills" class="content-block fade-in-section">
+                <h2 class="section-title" data-i18n="nav_operation_skills">Operation Skills</h2>
+                <div class="skills-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-i18n="op_skills_category">技能类别</th>
+                                <th data-i18n="op_skills_description">详细描述</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="op_skills_content_creation">内容创作</td>
+                                <td data-i18n="op_skills_content_creation_desc">熟悉B站、小红书、米游社等多平台内容创作与分发，具备视频文案策划、图文排版、长图文策划能力，能从用户需求出发进行内容选题与生产。</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="op_skills_user_insight">用户洞察</td>
+                                <td data-i18n="op_skills_user_insight_desc">熟悉二次元/ACG用户生态与内容消费偏好，拥有社群运营经验，具备内容拆解、竞品对比与用户反馈提炼能力。</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="op_skills_design_tools">设计工具</td>
+                                <td data-i18n="op_skills_design_tools_desc">掌握Canva、基础Photoshop操作，具备封面图设计与图文排版能力。</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="op_skills_data_analysis">数据分析</td>
+                                <td data-i18n="op_skills_data_analysis_desc">基础SQL、Excel（数据透视表、VLOOKUP），了解DAU、留存、ARPU等核心数据，具备数据驱动内容优化的意识。</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="op_skills_tech_understanding">技术理解</td>
+                                <td data-i18n="op_skills_tech_understanding_desc">计算机专业背景，了解AI工具，熟悉Python，能理解数据埋点逻辑与技术实现方案，高效对接研发团队。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
 
-        <!-- 项目 5: EM Classification App -->
-        <div class="project-item">
-            <div class="project-header">
-                <span class="project-title">📊 <span data-i18n="project5_title">EM Classification App — Streamlit Visualization</span></span>
-                <span class="project-date">2026.06</span>
-            </div>
-            <div class="tech-stack">
-                <span class="tech-tag python">Python</span>
-                <span class="tech-tag streamlit">Streamlit</span>
-            </div>
-            <ul class="project-desc">
-                <li data-i18n="project5_1">Built an interactive <strong>Expectation-Maximization</strong> algorithm visualization.</li>
-                <li data-i18n="project5_2">Implemented real-time <strong>clustering visualization</strong> with Streamlit.</li>
-                <li data-i18n="project5_3">Designed intuitive UI for parameter tuning and result exploration.</li>
-            </ul>
-            <a class="project-link" href="https://github.com/lik-586/em-classification-app" target="_blank" data-i18n="github_link">View on GitHub →</a>
-        </div>
-    </section>
+    </main>
 
-    <!-- 教育背景 -->
-    <section class="edu-section fade-in-section">
-        <h3 data-i18n="education">Education</h3>
-        <div class="edu-item">
-            <strong data-i18n="collage">Northeastern University at Qinhuangdao</strong> | B.S. in <span data-i18n="major">Computer Science</span>
-            <div class="course-list">
-                <strong data-i18n="courses">Core Courses:</strong> <span data-i18n="course_list">Data Structures (84), OS Principles (83), Compilation (83), Java (90)</span>.
-            </div>
-        </div>
-    </section>
-
-    <!-- 底部格言 -->
-    <blockquote class="fade-in-section">
-        "Attempt to achieve any sustainable behavior through automated means."
-    </blockquote>
-
-    <!-- 返回顶部按钮 -->
     <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
 
     <footer style="text-align: center; color: #959da5; font-size: 0.8rem; margin-top: 40px; padding-bottom: 20px;">
         © 2026 lk. Built with simple HTML, CSS & JavaScript.
     </footer>
 
-    <!-- 脚本文件 -->
     <script src="js/i18n.js"></script>
     <script src="js/main.js" defer></script>
 </body>
