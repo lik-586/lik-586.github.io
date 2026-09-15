@@ -507,6 +507,16 @@ html {
 .tech-tag.lru { background-color: #6b5b95; color: white; }
 .tech-tag.deepseek { background-color: #4285f4; color: white; }
 .tech-tag.json { background-color: #f5de19; color: #333; }
+.tech-tag.vue { background-color: #42b883; color: white; }
+.tech-tag.typescript { background-color: #3178c6; color: white; }
+.tech-tag.nodejs { background-color: #339933; color: white; }
+.tech-tag.express { background-color: #000000; color: white; }
+.tech-tag.agent { background-color: #c98a4a; color: white; }
+.tech-tag.sse { background-color: #5b8def; color: white; }
+.tech-tag.jwt { background-color: #d63aff; color: white; }
+.tech-tag.hunyuan { background-color: #0052d9; color: white; }
+.tech-tag.http { background-color: #4a90d9; color: white; }
+.tech-tag.vanilla { background-color: #f0db4f; color: #333; }
 
 .tech-tag.op-wechat { background-color: #07c160; color: white; }
 .tech-tag.op-bilibili { background-color: #fb7299; color: white; }

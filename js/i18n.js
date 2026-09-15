@@ -20,7 +20,7 @@ const translations = {
         available: '\uD83D\uDCC5 Available July',
 
         intro: "I'm a Junior at <strong>NEUQ</strong> with a dual focus on <strong>software development</strong> and <strong>game operations</strong>. Passionate about digging into system internals, LLMs, and building community engagement.",
-        intro1: '<strong>Technical Skills:</strong> Built an OS Kernel Simulator with C++, developed AI Companion with DeepSeek, explored NLP through toxicity prediction projects.',
+        intro1: '<strong>Technical Skills:</strong> Built a full-stack AI meal-planning agent (Vue3 + Express + ReAct), a zero-dependency AI pixel-portrait generator, an OS Kernel Simulator with C++, and NLP toxicity prediction projects.',
         intro2: '<strong>Game Operations:</strong> Created gaming community content, operated class WeChat public account (70+ articles), managed hometown group (160+ members).',
         intro3: '<strong>Content Creation:</strong> Multi-platform content distribution on Bilibili, Xiaohongshu, NGA; proficient in Canva, PS, PR, Excel, SQL, Python.',
         intro4: '<strong>Career Goal:</strong> Combining technical background with operations expertise to drive product growth and user engagement.',
@@ -32,6 +32,18 @@ const translations = {
         projects: 'Featured Projects',
         tech: 'Tech',
         github_link: 'View on GitHub \u2192',
+
+        project_sma_title: 'Smart Meal Agent \u2014 Full-stack AI Meal-Planning Agent',
+        project_sma_1: 'AI recipe platform (13 pages) with a <strong>self-implemented ReAct agent</strong> autonomously calling 10 tools.',
+        project_sma_2: '<strong>SSE streaming</strong> chat with visible Thought \u2192 Action \u2192 Observation trace and rule-based fallback.',
+        project_sma_3: 'Zero-dependency <strong>JWT auth</strong> (HS256 + scrypt) and debounced JSON-file persistence.',
+        project_sma_4: 'Bilingual docs, full API reference, CI workflow and one-click start scripts.',
+
+        project_shen_title: 'Shenshou Gallery \u2014 Zero-dependency AI Pixel Portrait Generator',
+        project_shen_1: 'Photo-to-<strong>pixel-art portrait</strong> generator with five mythical beasts \u2014 <strong>zero npm dependencies</strong>.',
+        project_shen_2: 'Hand-written <strong>TC3-HMAC-SHA256</strong> request signing for Tencent Cloud (no SDK).',
+        project_shen_3: 'Env-forced keys, path-traversal-safe static server, binds to <code>127.0.0.1</code> only.',
+        project_shen_4: 'Ships with a beginner walkthrough doc explaining the architecture line by line.',
 
         project1_title: 'OS Kernel Simulator — High Concurrency File System',
         project1_1: 'Designed <strong>DiskManager</strong> using POSIX <code>mmap</code>/<code>msync</code> for physical disk simulation.',
@@ -131,7 +143,7 @@ const translations = {
         available: '\uD83D\uDCC5 7\u6708\u53ef\u5230\u5c97',
 
         intro: '\u6211\u662f<strong>\u4e1c\u5317\u5927\u5b66</strong>\u5927\u4e09\u5b66\u751f\uff0c\u4e13\u6ce8\u4e8e<strong>\u8f6f\u4ef6\u5f00\u53d1</strong>\u548c<strong>\u6e38\u620f\u8fd0\u8425</strong>\u4e24\u5927\u65b9\u5411\u3002\u70ed\u4e8e\u63a2\u7d22\u7cfb\u7edf\u5e95\u5c42\u3001\u5927\u8bed\u8a00\u6a21\u578b\u548c\u793e\u533a\u5efa\u8bbe\u3002',
-        intro1: '<strong>\u6280\u672f\u80fd\u529b\uff1a</strong>\u4f7f\u7528C++\u5f00\u53d1\u4e86\u64cd\u4f5c\u7cfb\u7edf\u5185\u6838\u6a21\u62df\u5668\uff0c\u57fa\u4e8eDeepSeek\u5f00\u53d1AI\u4f34\u4fa3\uff0c\u901a\u8fc7\u6027\u601d\u9884\u6d4b\u9879\u76ee\u63a2\u7d22NLP\u9886\u57df\u3002',
+        intro1: '<strong>\u6280\u672f\u80fd\u529b\uff1a</strong>\u72ec\u7acb\u5b8c\u6210\u5168\u6808 AI \u7f8e\u98df\u667a\u80fd\u4f53\uff08Vue3 + Express + ReAct\uff09\u3001\u96f6\u4f9d\u8d56 AI \u50cf\u7d20\u753b\u50cf\u751f\u6210\u5668\u3001C++ \u64cd\u4f5c\u7cfb\u7edf\u5185\u6838\u6a21\u62df\u5668\u4e0e NLP \u6027\u601d\u9884\u6d4b\u9879\u76ee\u3002',
         intro2: '<strong>\u6e38\u620f\u8fd0\u8425\uff1a</strong>\u521b\u4f5c\u6e38\u620f\u793e\u533a\u5185\u5bb9\uff0c\u8fd0\u8425\u73ed\u7ea7\u516c\u4f17\u53f7\uff0870+\u7bc7\u6587\u7ae0\uff09\uff0c\u7ba1\u7406\u8001\u4e61\u7fa4\uff08160+\u6210\u5458\uff09\u3002',
         intro3: '<strong>\u5185\u5bb9\u521b\u4f5c\uff1a</strong>B\u7ad9\u3001\u5c0f\u7ea2\u4e66\u3001NGA\u591a\u5e73\u53f0\u5206\u53d1\uff0c\u719f\u7ec3\u4f7f\u7528Canva\u3001PS\u3001PR\u3001Excel\u3001SQL\u3001Python\u3002',
         intro4: '<strong>\u804c\u4e1a\u76ee\u6807\uff1a</strong>\u7ed3\u5408\u6280\u672f\u80cc\u666f\u4e0e\u8fd0\u8425\u7ecf\u9a8c\uff0c\u9a71\u52a8\u4ea7\u54c1\u589e\u957f\u548c\u7528\u6237\u53c2\u4e0e\u3002',
@@ -143,6 +155,18 @@ const translations = {
         projects: '\u7cbe\u9009\u9879\u76ee',
         tech: '\u6280\u672f\u6808',
         github_link: '\u67e5\u770b GitHub \u2192',
+
+        project_sma_title: '智能美食搭配助手 —— 全栈 AI 膳食规划智能体',
+        project_sma_1: 'AI 菜谱平台（13 个页面），<strong>自研 ReAct 智能体</strong>自主调用 10 个工具。',
+        project_sma_2: '<strong>SSE 流式</strong>对话，可视化思考→行动→观察轨迹，Function Calling 失败自动规则降级。',
+        project_sma_3: '零依赖 <strong>JWT 鉴权</strong>（HS256 + scrypt）与防抖 JSON 文件持久化。',
+        project_sma_4: '中英双语文档、完整 API 参考、CI 工作流与一键启动脚本。',
+
+        project_shen_title: '神兽绘画馆 —— 零依赖 AI 像素画像生成器',
+        project_shen_1: '照片转<strong>像素风画像</strong>，五方神兽同框——<strong>零 npm 依赖</strong>。',
+        project_shen_2: '手写 <strong>TC3-HMAC-SHA256</strong> 签名直连腾讯云（不使用 SDK）。',
+        project_shen_3: '密钥强制环境变量、防路径穿越静态服务、仅监听 <code>127.0.0.1</code>。',
+        project_shen_4: '附面向初学者的逐行架构讲解文档。',
 
         project1_title: '\u64cd\u4f5c\u7cfb\u7edf\u5185\u6838\u6a21\u62df\u5668 \u2014\u2014 \u9ad8\u5e76\u53d1\u6587\u4ef6\u7cfb\u7edf',
         project1_1: '\u4f7f\u7528 POSIX <code>mmap</code>/<code>msync</code> \u8bbe\u8ba1<strong>DiskManager</strong>\u5b9e\u73b0\u7269\u7406\u78c1\u76d8\u6a21\u62df\u3002',

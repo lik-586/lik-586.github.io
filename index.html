@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="lk - CS Undergraduate at NEUQ. Passionate about AI/ML, NLP, and Game Operations. Seeking Backend, AI Engineering or Game Operation internships.">
-    <meta name="keywords" content="lk, NEUQ, Northeastern University, Computer Science, AI, Machine Learning, NLP, Game Operation, Python, C++, PyTorch">
+    <meta name="description" content="lk - CS Undergraduate at NEUQ. Passionate about full-stack AI applications, LLM agents, system internals, and Game Operations. Seeking Backend, AI Engineering or Game Operation internships.">
+    <meta name="keywords" content="lk, NEUQ, Northeastern University, Computer Science, AI, Machine Learning, NLP, LLM Agent, Full-stack, Vue, Node.js, Game Operation, Python, C++, PyTorch">
     <meta name="author" content="lk">
     <meta name="robots" content="index, follow">
     
@@ -40,7 +40,7 @@
             "@type": "CollegeOrUniversity",
             "name": "Northeastern University at Qinhuangdao"
         },
-        "knowsAbout": ["Operating Systems", "Machine Learning", "Natural Language Processing", "Game Operations", "C++", "Python", "PyTorch"]
+        "knowsAbout": ["Operating Systems", "Machine Learning", "Natural Language Processing", "LLM Agents", "Full-stack Web Development", "Game Operations", "C++", "Python", "PyTorch", "Vue", "Node.js"]
     }
     </script>
 </head>
@@ -101,7 +101,7 @@
                 <div class="intro-content">
                     <p data-i18n="intro">I'm a Junior at <strong>NEUQ</strong> with a dual focus on <strong>software development</strong> and <strong>game operations</strong>. Passionate about digging into system internals, LLMs, and building community engagement.</p>
                     <ul>
-                        <li data-i18n="intro1"><strong>Technical Skills:</strong> Built an OS Kernel Simulator with C++, developed AI Companion with DeepSeek, explored NLP through toxicity prediction projects.</li>
+                        <li data-i18n="intro1"><strong>Technical Skills:</strong> Built a full-stack AI meal-planning agent (Vue3 + Express + ReAct), a zero-dependency AI pixel-portrait generator, an OS Kernel Simulator with C++, and NLP toxicity prediction projects.</li>
                         <li data-i18n="intro2"><strong>Game Operations:</strong> Created gaming community content, operated class WeChat public account (70+ articles), managed hometown group (160+ members).</li>
                         <li data-i18n="intro3"><strong>Content Creation:</strong> Multi-platform content distribution on Bilibili, Xiaohongshu, NGA; proficient in Canva, PS, PR, Excel, SQL, Python.</li>
                         <li data-i18n="intro4"><strong>Career Goal:</strong> Combining technical background with operations expertise to drive product growth and user engagement.</li>
@@ -170,6 +170,47 @@
         <div id="tech-section" class="tab-section">
             <section id="tech-projects" class="content-block fade-in-section">
                 <h2 class="section-title" data-i18n="nav_tech_projects">Technical Projects</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🍳 <span data-i18n="project_sma_title">Smart Meal Agent — Full-stack AI Meal-Planning Agent</span></span>
+                        <span class="project-date">2026.09</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag vue">Vue 3</span>
+                        <span class="tech-tag typescript">TypeScript</span>
+                        <span class="tech-tag express">Express</span>
+                        <span class="tech-tag agent">ReAct Agent</span>
+                        <span class="tech-tag sse">SSE</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="project_sma_1">AI recipe platform (13 pages) with a <strong>self-implemented ReAct agent</strong> autonomously calling 10 tools.</li>
+                        <li data-i18n="project_sma_2"><strong>SSE streaming</strong> chat with visible Thought → Action → Observation trace and rule-based fallback.</li>
+                        <li data-i18n="project_sma_3">Zero-dependency <strong>JWT auth</strong> (HS256 + scrypt) and debounced JSON-file persistence.</li>
+                        <li data-i18n="project_sma_4">Bilingual docs, full API reference, CI workflow and one-click start scripts.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/lik-586/smart-meal-agent" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">🐉 <span data-i18n="project_shen_title">Shenshou Gallery — Zero-dependency AI Pixel Portrait Generator</span></span>
+                        <span class="project-date">2026.09</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag nodejs">Node.js</span>
+                        <span class="tech-tag http">Native http</span>
+                        <span class="tech-tag hunyuan">Tencent Hunyuan</span>
+                        <span class="tech-tag vanilla">Vanilla JS</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li data-i18n="project_shen_1">Photo-to-<strong>pixel-art portrait</strong> generator with five mythical beasts — <strong>zero npm dependencies</strong>.</li>
+                        <li data-i18n="project_shen_2">Hand-written <strong>TC3-HMAC-SHA256</strong> request signing for Tencent Cloud (no SDK).</li>
+                        <li data-i18n="project_shen_3">Env-forced keys, path-traversal-safe static server, binds to <code>127.0.0.1</code> only.</li>
+                        <li data-i18n="project_shen_4">Ships with a beginner walkthrough doc explaining the architecture line by line.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/lik-586/shenshou-gallery" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                </div>
 
                 <div class="project-item">
                     <div class="project-header">
@@ -270,6 +311,12 @@
                 <div class="skills-container">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">C++</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Vue 3</span>
+                    <span class="skill-tag">Node.js / Express</span>
+                    <span class="skill-tag">LLM Agent</span>
+                    <span class="skill-tag">SSE Streaming</span>
                     <span class="skill-tag">PyTorch</span>
                     <span class="skill-tag">NLP</span>
                     <span class="skill-tag">Linux</span>
