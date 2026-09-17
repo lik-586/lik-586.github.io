@@ -24,9 +24,7 @@ Desktop.ini
 *~
 
 node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# 锁文件必须提交，否则依赖版本不可复现（原先被误加入忽略列表）
 .npmrc
 .yarnrc
 .yarn/

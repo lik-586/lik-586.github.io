@@ -13,18 +13,37 @@
     <meta property="og:description" content="CS Student at NEUQ passionate about AI/ML, and Game Operations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lik-586.github.io">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/271217861?v=4">
+    <meta property="og:image" content="https://lik-586.github.io/assets/og-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="zh_CN">
     
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="lk | CS Undergraduate">
     <meta name="twitter:description" content="CS Student passionate about Development and Game Operations">
-    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/271217861?v=4">
+    <meta name="twitter:image" content="https://lik-586.github.io/assets/og-cover.png">
     
-    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/271217861?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="canonical" href="https://lik-586.github.io/">
+    <meta name="theme-color" content="#d1684e">
     
     <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        document.documentElement.classList.add('js');
+        // 兜底：若主脚本未能正常接管（加载失败 / 解析异常），1.2s 后强制展示全部内容，避免整页白屏
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                if (!window.__siteReady) {
+                    var nodes = document.querySelectorAll('.fade-in-section');
+                    for (var i = 0; i < nodes.length; i++) { nodes[i].classList.add('visible'); }
+                }
+            }, 1200);
+        });
+    </script>
+    <noscript><style>html.js .fade-in-section { opacity: 1; transform: none; }</style></noscript>
     
     <title>lk | CS Undergraduate - Developer & Game Operations</title>
     
@@ -45,7 +64,9 @@
     </script>
 </head>
 <body>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+    <h1 class="visually-hidden" data-i18n="page_title">lk — CS Undergraduate Portfolio</h1>
+
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar">
         <span></span>
         <span></span>
         <span></span>
@@ -57,49 +78,47 @@
             <li><a href="#link" class="nav-link" data-tab="general" data-i18n="nav_contact">Link</a></li>
             <li><a href="#skills" class="nav-link" data-tab="general" data-i18n="nav_skills">Skills</a></li>
             <li><a href="#tech-projects" class="nav-link" data-tab="tech" data-i18n="nav_tech_projects">Tech Projects</a></li>
-            <li><a href="#tech-skills" class="nav-link" data-tab="tech" data-i18n="nav_tech_skills">Tech Skills</a></li>
-            <li><a href="#operation-experience" class="nav-link" data-tab="operation" data-i18n="nav_operation_experience">Op Experience</a></li>
-            <li><a href="#operation-projects" class="nav-link" data-tab="operation" data-i18n="nav_operation_projects">Op Projects</a></li>
-            <li><a href="#operation-skills" class="nav-link" data-tab="operation" data-i18n="nav_operation_skills">Op Skills</a></li>
+            <li><a href="#tech-skills" class="nav-link" data-tab="tech" data-i18n="nav_tech_skills">Technical Skills</a></li>
+            <li><a href="#operation-experience" class="nav-link" data-tab="operation" data-i18n="nav_operation_experience">Operation Experience</a></li>
+            <li><a href="#operation-projects" class="nav-link" data-tab="operation" data-i18n="nav_operation_projects">Campus Experience</a></li>
+            <li><a href="#operation-skills" class="nav-link" data-tab="operation" data-i18n="nav_operation_skills">Operation Skills</a></li>
             <li><a href="#education" class="nav-link" data-tab="general" data-i18n="nav_education">Education</a></li>
         </ul>
     </nav>
 
-    <div class="lang-switch">
-        <button class="lang-btn" onclick="switchLang('zh', this)">中文</button>
-        <button class="lang-btn active" onclick="switchLang('en', this)">English</button>
+    <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true">English</button>
     </div>
 
     <main class="main-content">
-        <div class="section-tabs">
-            <button class="tab-btn active" data-tab="general" data-i18n="tab_general">🔹 General</button>
-            <button class="tab-btn" data-tab="tech" data-i18n="tab_tech">💻 Tech</button>
-            <button class="tab-btn" data-tab="operation" data-i18n="tab_operation">🎮 Operation</button>
+        <div class="section-tabs" role="tablist" aria-label="Sections">
+            <button class="tab-btn active" id="tab-general" type="button" role="tab" aria-selected="true" aria-controls="general-section" data-tab="general" data-i18n="tab_general"><span aria-hidden='true'>🔹</span> General</button>
+            <button class="tab-btn" id="tab-tech" type="button" role="tab" aria-selected="false" aria-controls="tech-section" data-tab="tech" data-i18n="tab_tech"><span aria-hidden='true'>💻</span> Tech</button>
+            <button class="tab-btn" id="tab-operation" type="button" role="tab" aria-selected="false" aria-controls="operation-section" data-tab="operation" data-i18n="tab_operation"><span aria-hidden='true'>🎮</span> Operation</button>
         </div>
 
-        <div id="general-section" class="tab-section active">
+        <div id="general-section" class="tab-section active" role="tabpanel" aria-labelledby="tab-general" tabindex="0">
             <section id="intro" class="content-block fade-in-section">
                 <h2 class="section-title" data-i18n="nav_intro">About</h2>
                 
                 <div class="avatar-container">
-                    <img class="avatar" src="https://avatars.githubusercontent.com/u/271217861?v=4" alt="lk's avatar">
+                    <img class="avatar" src="assets/avatar.png" alt="lk's avatar" width="120" height="120" decoding="async">
                 </div>
                 
                 <div class="typewriter-container" id="typewriter"></div>
 
-                <div class="subtitle" data-i18n="subtitle">
-                    Northeastern University at Qinhuangdao | C++ & Python Developer | AI & Game Operations
-                </div>
-                <p data-i18n="seeking">👋 I am seeking internships in Backend, AI Engineering or Game Operations.</p>
+                <div class="subtitle" data-i18n="subtitle">Northeastern University at Qinhuangdao | C++ &amp; Python Developer | AI &amp; Game Operations</div>
+                <p data-i18n="seeking"><span aria-hidden='true'>👋</span> I am seeking internships in Backend, AI Engineering or Game Operations.</p>
 
                 <div class="status-badges">
-                    <div class="badge">🌱 GPA 2.88/5.0</div>
-                    <div class="badge" data-i18n="location">📍 Qinhuangdao / Remote</div>
-                    <div class="badge" data-i18n="available">📅 Available July</div>
+                    <div class="badge"><span aria-hidden='true'>🌱</span> GPA 2.88/5.0</div>
+                    <div class="badge" data-i18n="location"><span aria-hidden='true'>📍</span> Qinhuangdao / Remote</div>
+                    <div class="badge" data-i18n="available"><span aria-hidden='true'>📅</span> Available immediately</div>
                 </div>
 
                 <div class="intro-content">
-                    <p data-i18n="intro">I'm a Junior at <strong>NEUQ</strong> with a dual focus on <strong>software development</strong> and <strong>game operations</strong>. Passionate about digging into system internals, LLMs, and building community engagement.</p>
+                    <p data-i18n="intro">I'm a <strong>Senior</strong> at <strong>NEUQ</strong> with a dual focus on <strong>software development</strong> and <strong>game operations</strong>. Passionate about digging into system internals, LLMs, and building community engagement.</p>
                     <ul>
                         <li data-i18n="intro1"><strong>Technical Skills:</strong> Built a full-stack AI meal-planning agent (Vue3 + Express + ReAct), a zero-dependency AI pixel-portrait generator, an OS Kernel Simulator with C++, and NLP toxicity prediction projects.</li>
                         <li data-i18n="intro2"><strong>Game Operations:</strong> Created gaming community content, operated class WeChat public account (70+ articles), managed hometown group (160+ members).</li>
@@ -119,7 +138,7 @@
                         </a>
                     </div>
                     <div class="tag-link">
-                        <a href="https://github.com/lik-586" target="_blank">
+                        <a href="https://github.com/lik-586" target="_blank" rel="noopener noreferrer">
                             <span class="tag t-gh">GitHub</span>
                             <span class="tag t-gh-val">lik-586</span>
                         </a>
@@ -128,7 +147,7 @@
             </section>
 
             <section id="skills" class="content-block fade-in-section">
-                <h2 class="section-title" data-i18n="nav_skills">Comprehensive Skills</h2>
+                <h2 class="section-title" data-i18n="skills_full_title">Comprehensive Skills</h2>
                 <div class="skills-container">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">C++</span>
@@ -153,9 +172,9 @@
             <section id="education" class="content-block fade-in-section">
                 <h2 class="section-title" data-i18n="education">Education</h2>
                 <div class="edu-item">
-                    <strong data-i18n="collage">Northeastern University at Qinhuangdao</strong> | B.S. in <span data-i18n="major">Computer Science</span>
+                    <strong data-i18n="college">Northeastern University at Qinhuangdao</strong> | B.S. in <span data-i18n="major">Computer Science</span>
                     <div class="course-list">
-                        <strong data-i18n="courses">Core Courses:</strong> <span data-i18n="course_list">Data Structures (84), OS Principles (83), Compilation (83), Java (90)</span>.
+                        <strong data-i18n="courses">Core Courses:</strong> <span data-i18n="course_list">Data Structures (84), Computer Organization (81), Compilation Principles (83), Java (90), Software Engineering (83), Probability and Statistics (82)</span>.
                     </div>
                 </div>
             </section>
@@ -167,13 +186,13 @@
             </section>
         </div>
 
-        <div id="tech-section" class="tab-section">
+        <div id="tech-section" class="tab-section" role="tabpanel" aria-labelledby="tab-tech" tabindex="0">
             <section id="tech-projects" class="content-block fade-in-section">
-                <h2 class="section-title" data-i18n="nav_tech_projects">Technical Projects</h2>
+                <h2 class="section-title" data-i18n="sec_tech_projects_title">Technical Projects</h2>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🍳 <span data-i18n="project_sma_title">Smart Meal Agent — Full-stack AI Meal-Planning Agent</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🍳</span> <span data-i18n="project_sma_title">Smart Meal Agent — Full-stack AI Meal-Planning Agent</span></h3>
                         <span class="project-date">2026.09</span>
                     </div>
                     <div class="tech-stack">
@@ -189,12 +208,12 @@
                         <li data-i18n="project_sma_3">Zero-dependency <strong>JWT auth</strong> (HS256 + scrypt) and debounced JSON-file persistence.</li>
                         <li data-i18n="project_sma_4">Bilingual docs, full API reference, CI workflow and one-click start scripts.</li>
                     </ul>
-                    <a class="project-link" href="https://github.com/lik-586/smart-meal-agent" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                    <a class="project-link" href="https://github.com/lik-586/smart-meal-agent" target="_blank" rel="noopener noreferrer" data-i18n="github_link">View on GitHub →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🐉 <span data-i18n="project_shen_title">Shenshou Gallery — Zero-dependency AI Pixel Portrait Generator</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🐉</span> <span data-i18n="project_shen_title">Shenshou Gallery — Zero-dependency AI Pixel Portrait Generator</span></h3>
                         <span class="project-date">2026.09</span>
                     </div>
                     <div class="tech-stack">
@@ -209,12 +228,12 @@
                         <li data-i18n="project_shen_3">Env-forced keys, path-traversal-safe static server, binds to <code>127.0.0.1</code> only.</li>
                         <li data-i18n="project_shen_4">Ships with a beginner walkthrough doc explaining the architecture line by line.</li>
                     </ul>
-                    <a class="project-link" href="https://github.com/lik-586/shenshou-gallery" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                    <a class="project-link" href="https://github.com/lik-586/shenshou-gallery" target="_blank" rel="noopener noreferrer" data-i18n="github_link">View on GitHub →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">📂 <span data-i18n="project1_title">OS Kernel Simulator — High Concurrency File System</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>📂</span> <span data-i18n="project1_title">OS Kernel Simulator — High Concurrency File System</span></h3>
                         <span class="project-date">2025.12 - 2026.01</span>
                     </div>
                     <div class="tech-stack">
@@ -224,17 +243,17 @@
                         <span class="tech-tag lru">LRU</span>
                     </div>
                     <ul class="project-desc">
-                        <li data-i18n="project1_1">Designed a simplified OS kernel with <strong>file management</strong> and process scheduling.</li>
-                        <li data-i18n="project1_2">Implemented <strong>FAT</strong> algorithm and memory mapping (<code>mmap</code>) for disk simulation.</li>
-                        <li data-i18n="project1_3">Optimized I/O efficiency by <strong>~40%</strong> using <strong>LRU Buffer Pool</strong> and dirty page write-back.</li>
-                        <li data-i18n="project1_4">Solved race conditions in multi-threading via Semaphores and Mutex Locks.</li>
+                        <li data-i18n="project1_1">Designed <strong>DiskManager</strong> using POSIX <code>mmap</code>/<code>msync</code> for physical disk simulation.</li>
+                        <li data-i18n="project1_2">Implemented <strong>FAT</strong> file system with LRU buffer pool (16 pages, 64B/page).</li>
+                        <li data-i18n="project1_3">Built <strong>MessageQueue</strong> and priority-based <strong>ProcessScheduler</strong> using semaphores.</li>
+                        <li data-i18n="project1_4">Real-time <strong>MonitorPanel</strong> for FAT table, buffer pool, and disk usage visualization.</li>
                     </ul>
-                    <a class="project-link" href="https://github.com/lik-586/OS-Kernel-Simulator" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                    <a class="project-link" href="https://github.com/lik-586/OS-Kernel-Simulator" target="_blank" rel="noopener noreferrer" data-i18n="github_link">View on GitHub →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🤖 <span data-i18n="project2_title">AI Companion — Roleplay & Memory System</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🤖</span> <span data-i18n="project2_title">AI Companion — Roleplay &amp; Memory System</span></h3>
                         <span class="project-date">2026.03 - 2026.04</span>
                     </div>
                     <div class="tech-stack">
@@ -247,14 +266,14 @@
                         <li data-i18n="project2_1">Built an AI chatbot with <strong>persistent memory</strong> and emotional roleplay capabilities.</li>
                         <li data-i18n="project2_2">Designed a dynamic <strong>System Prompt</strong> mechanism for personality injection.</li>
                         <li data-i18n="project2_3">Implemented CRUD operations for chat history using local <strong>JSON storage</strong>.</li>
-                        <li data-i18n="project2_4">Achieved millisecond-level streaming response and seamless context switching.</li>
+                        <li data-i18n="project2_4">Implemented streaming response with seamless context switching.</li>
                     </ul>
-                    <a class="project-link" href="https://github.com/lik-586/AI-Companion" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                    <a class="project-link" href="https://github.com/lik-586/AI-Companion" target="_blank" rel="noopener noreferrer" data-i18n="github_link">View on GitHub →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🔍 <span data-i18n="project3_title">Jigsaw Toxicity Prediction — NLP Classification</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🔍</span> <span data-i18n="project3_title">Jigsaw Toxicity Prediction — NLP Classification</span></h3>
                         <span class="project-date">2026.04 - 2026.06</span>
                     </div>
                     <div class="tech-stack">
@@ -264,16 +283,15 @@
                     </div>
                     <ul class="project-desc">
                         <li data-i18n="project3_1">Built a <strong>text toxicity classifier</strong> using Transformer-based models.</li>
-                        <li data-i18n="project3_2">Processed and analyzed large-scale <strong>NLP datasets</strong> for sentiment analysis.</li>
+                        <li data-i18n="project3_2">Cleaned and analyzed large-scale <strong>multi-label toxicity datasets</strong>.</li>
                         <li data-i18n="project3_3">Implemented multi-label classification for various toxicity types.</li>
-                        <li data-i18n="project3_4">Achieved competitive performance on Kaggle Jigsaw competition benchmarks.</li>
                     </ul>
-                    <a class="project-link" href="https://github.com/lik-586/Jigsaw_Toxicity_Prediction" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                    <a class="project-link" href="https://github.com/lik-586/Jigsaw_Toxicity_Prediction" target="_blank" rel="noopener noreferrer" data-i18n="github_link">View on GitHub →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🔥 <span data-i18n="project4_title">PyTorch Deep Learning Lab</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🔥</span> <span data-i18n="project4_title">PyTorch Deep Learning Lab</span></h3>
                         <span class="project-date">2026.03 - 2026.06</span>
                     </div>
                     <div class="tech-stack">
@@ -282,15 +300,14 @@
                     </div>
                     <ul class="project-desc">
                         <li data-i18n="project4_1">Experimented with various <strong>neural network architectures</strong> and training techniques.</li>
-                        <li data-i18n="project4_2">Implemented custom <strong>loss functions</strong> and optimization strategies.</li>
-                        <li data-i18n="project4_3">Explored <strong>model optimization</strong> techniques including quantization and pruning.</li>
+                        <li data-i18n="project4_2">Built a <strong>house-price regression</strong> model with PyTorch <code>nn.MSELoss</code> and a complete training loop.</li>
                     </ul>
-                    <a class="project-link" href="https://github.com/lik-586/pytorch_test" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                    <a class="project-link" href="https://github.com/lik-586/pytorch_test" target="_blank" rel="noopener noreferrer" data-i18n="github_link">View on GitHub →</a>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">📊 <span data-i18n="project5_title">EM Classification App — Streamlit Visualization</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>📊</span> <span data-i18n="project5_title">EM Classification App — Streamlit Visualization</span></h3>
                         <span class="project-date">2026.06</span>
                     </div>
                     <div class="tech-stack">
@@ -302,12 +319,12 @@
                         <li data-i18n="project5_2">Implemented real-time <strong>clustering visualization</strong> with Streamlit.</li>
                         <li data-i18n="project5_3">Designed intuitive UI for parameter tuning and result exploration.</li>
                     </ul>
-                    <a class="project-link" href="https://github.com/lik-586/em-classification-app" target="_blank" data-i18n="github_link">View on GitHub →</a>
+                    <a class="project-link" href="https://github.com/lik-586/em-classification-app" target="_blank" rel="noopener noreferrer" data-i18n="github_link">View on GitHub →</a>
                 </div>
             </section>
 
             <section id="tech-skills" class="content-block fade-in-section">
-                <h2 class="section-title" data-i18n="nav_tech_skills">Technical Skills</h2>
+                <h2 class="section-title" data-i18n="sec_tech_skills_title">Technical Skills</h2>
                 <div class="skills-container">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">C++</span>
@@ -331,13 +348,13 @@
             </section>
         </div>
 
-        <div id="operation-section" class="tab-section">
+        <div id="operation-section" class="tab-section" role="tabpanel" aria-labelledby="tab-operation" tabindex="0">
             <section id="operation-experience" class="content-block fade-in-section">
-                <h2 class="section-title" data-i18n="nav_operation_experience">Operation Experience</h2>
+                <h2 class="section-title" data-i18n="sec_operation_experience_title">Operation Experience</h2>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🎮 <span data-i18n="op_exp1_title">Zenless Zone Zero Content Creation</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🎮</span> <span data-i18n="op_exp1_title">Zenless Zone Zero Content Creation | Content Operation</span></h3>
                         <span class="project-date">2026.07</span>
                     </div>
                     <div class="tech-stack">
@@ -354,7 +371,7 @@
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🎮 <span data-i18n="op_exp4_title">Honkai: Star Rail Content Creation</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🎮</span> <span data-i18n="op_exp4_title">Honkai: Nexus Anima Content Creation | Content Operation</span></h3>
                         <span class="project-date">2026.07</span>
                     </div>
                     <div class="tech-stack">
@@ -371,7 +388,7 @@
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">📝 <span data-i18n="op_exp2_title">Class WeChat Public Account Operator</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>📝</span> <span data-i18n="op_exp2_title">Class WeChat Public Account Operator | New Media &amp; User Operation</span></h3>
                         <span class="project-date">2023.09 - Present</span>
                     </div>
                     <div class="tech-stack">
@@ -387,7 +404,7 @@
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">👥 <span data-i18n="op_exp3_title">School Hometown Community Manager</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>👥</span> <span data-i18n="op_exp3_title">Shaanxi Hometown Community Manager | User Operation</span></h3>
                         <span class="project-date">2024.06 - 2025.06</span>
                     </div>
                     <div class="tech-stack">
@@ -395,7 +412,7 @@
                         <span class="tech-tag op-event">Event Organization</span>
                     </div>
                     <ul class="project-desc">
-                        <li data-i18n="op_exp3_1">Managed Shaanxi hometown group (160 members), planned 1 large welcome party and multiple small activities.</li>
+                        <li data-i18n="op_exp3_1">Managed Shaanxi hometown group (160 members), planned 1 large hometown welcome party and multiple small activities.</li>
                         <li data-i18n="op_exp3_2">Responsible for activity promotion, personnel coordination and on-site execution.</li>
                         <li data-i18n="op_exp3_3">Maintained community activity through regular topic interactions, improving member stickiness and sense of belonging.</li>
                     </ul>
@@ -403,11 +420,11 @@
             </section>
 
             <section id="operation-projects" class="content-block fade-in-section">
-                <h2 class="section-title" data-i18n="nav_operation_projects">Campus Experience</h2>
+                <h2 class="section-title" data-i18n="sec_campus_experience_title">Campus Experience</h2>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🎯 <span data-i18n="op_proj1_title">Campus Publicity Committee</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🎯</span> <span data-i18n="op_proj1_title">Publicity Committee</span></h3>
                         <span class="project-date">2023.09 - Present</span>
                     </div>
                     <div class="tech-stack">
@@ -416,15 +433,15 @@
                         <span class="tech-tag op-event">Event Planning</span>
                     </div>
                     <ul class="project-desc">
-                        <li data-i18n="op_proj1_1">Published <strong>100+ promotional articles</strong> for class and school activities.</li>
-                        <li data-i18n="op_proj1_2">Planned and executed <strong>10+ campus events</strong>, including sports meetings and cultural festivals.</li>
-                        <li data-i18n="op_proj1_3">Developed effective publicity strategies, increasing event attendance rates.</li>
+                        <li data-i18n="op_proj1_1">Responsible for daily publicity of CS Class 2306. Published <strong>70+ original articles</strong> covering activity pushes, league day records, class announcements, current affairs, study-enhancement posts and holiday greetings.</li>
+                        <li data-i18n="op_proj1_2">Original content rate over 70%. Published promotional articles on college public account with 500+ views. Assisted in planning and publicizing daily league day activities.</li>
+                        <li data-i18n="op_proj1_3">Developed strong planning, publicity and organizational abilities.</li>
                     </ul>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <span class="project-title">🤝 <span data-i18n="op_proj2_title">Youth Volunteer Association Officer</span></span>
+                        <h3 class="project-title"><span aria-hidden='true'>🤝</span> <span data-i18n="op_proj2_title">College Youth Volunteer Association · Officer</span></h3>
                         <span class="project-date">2023.09 - 2025.06</span>
                     </div>
                     <div class="tech-stack">
@@ -433,43 +450,43 @@
                         <span class="tech-tag op-content">Publicity</span>
                     </div>
                     <ul class="project-desc">
-                        <li data-i18n="op_proj2_1">Organized <strong>30+ volunteer activities</strong>, recruiting and managing volunteer teams.</li>
-                        <li data-i18n="op_proj2_2">Responsible for activity publicity and documentation, enhancing association visibility.</li>
+                        <li data-i18n="op_proj2_1">Organized <strong>30+ volunteer activities</strong> with a total of <strong>100+ service hours</strong>, coordinating public-welfare events and volunteer recruitment.</li>
+                        <li data-i18n="op_proj2_2">Assisted in writing activity promotional articles in the department publicity center, undertaking nearly 50% of the writing work.</li>
                         <li data-i18n="op_proj2_3">Participated in community service projects, contributing to social welfare.</li>
                     </ul>
                 </div>
             </section>
 
             <section id="operation-skills" class="content-block fade-in-section">
-                <h2 class="section-title" data-i18n="nav_operation_skills">Operation Skills</h2>
+                <h2 class="section-title" data-i18n="sec_operation_skills_title">Operation Skills</h2>
                 <div class="skills-table">
                     <table>
                         <thead>
                             <tr>
-                                <th data-i18n="op_skills_category">技能类别</th>
-                                <th data-i18n="op_skills_description">详细描述</th>
+                                <th data-i18n="op_skills_category">Skill Category</th>
+                                <th data-i18n="op_skills_description">Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td data-i18n="op_skills_content_creation">内容创作</td>
-                                <td data-i18n="op_skills_content_creation_desc">熟悉B站、小红书、米游社等多平台内容创作与分发，具备视频文案策划、图文排版、长图文策划能力，能从用户需求出发进行内容选题与生产。</td>
+                                <td data-i18n="op_skills_content_creation">Content Creation</td>
+                                <td data-i18n="op_skills_content_creation_desc">Proficient in multi-platform content creation and distribution on Bilibili, Xiaohongshu, and Mihoyo Community. Skilled in video copywriting, graphic layout, and long-form content planning. Able to conduct content selection and production based on user needs.</td>
                             </tr>
                             <tr>
-                                <td data-i18n="op_skills_user_insight">用户洞察</td>
-                                <td data-i18n="op_skills_user_insight_desc">熟悉二次元/ACG用户生态与内容消费偏好，拥有社群运营经验，具备内容拆解、竞品对比与用户反馈提炼能力。</td>
+                                <td data-i18n="op_skills_user_insight">User Insight</td>
+                                <td data-i18n="op_skills_user_insight_desc">Familiar with ACG/user ecosystem and content consumption preferences. Experienced in community operation, with abilities in content analysis, competitor comparison, and user feedback extraction.</td>
                             </tr>
                             <tr>
-                                <td data-i18n="op_skills_design_tools">设计工具</td>
-                                <td data-i18n="op_skills_design_tools_desc">掌握Canva、基础Photoshop操作，具备封面图设计与图文排版能力。</td>
+                                <td data-i18n="op_skills_design_tools">Design Tools</td>
+                                <td data-i18n="op_skills_design_tools_desc">Proficient in Canva and basic Photoshop operations. Skilled in cover design and graphic layout.</td>
                             </tr>
                             <tr>
-                                <td data-i18n="op_skills_data_analysis">数据分析</td>
-                                <td data-i18n="op_skills_data_analysis_desc">基础SQL、Excel（数据透视表、VLOOKUP），了解DAU、留存、ARPU等核心数据，具备数据驱动内容优化的意识。</td>
+                                <td data-i18n="op_skills_data_analysis">Data Analysis</td>
+                                <td data-i18n="op_skills_data_analysis_desc">Basic SQL, Excel (PivotTable, VLOOKUP). Understanding of core metrics including DAU, retention, and ARPU. Possesses data-driven content optimization awareness.</td>
                             </tr>
                             <tr>
-                                <td data-i18n="op_skills_tech_understanding">技术理解</td>
-                                <td data-i18n="op_skills_tech_understanding_desc">计算机专业背景，了解AI工具，熟悉Python，能理解数据埋点逻辑与技术实现方案，高效对接研发团队。</td>
+                                <td data-i18n="op_skills_tech_understanding">Technical Understanding</td>
+                                <td data-i18n="op_skills_tech_understanding_desc">Computer science background with knowledge of AI tools and Python. Able to understand data tracking logic and technical implementation plans, facilitating efficient collaboration with development teams.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -479,10 +496,10 @@
 
     </main>
 
-    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+    <button class="back-to-top" id="back-to-top" type="button" title="Back to Top" aria-label="Back to top">↑</button>
 
-    <footer style="text-align: center; color: #959da5; font-size: 0.8rem; margin-top: 40px; padding-bottom: 20px;">
-        © 2026 lk. Built with simple HTML, CSS & JavaScript.
+    <footer>
+        © <span id="copyright-year">2026</span> lk. Built with simple HTML, CSS &amp; JavaScript.
     </footer>
 
     <script src="js/i18n.js"></script>

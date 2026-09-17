@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>404 — Page not found | lk</title>
+    <meta name="theme-color" content="#d1684e">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <style>
+        :root {
+            --primary-color: #d1684e;
+            --primary-text: #a8432c;
+            --primary-strong: #b8492f;
+            --text-main: #24292e;
+            --text-gray: #586069;
+            --bg-code: #f6f8fa;
+            --border-color: #e1e4e8;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background-color: #fafbfc;
+            color: var(--text-main);
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        .card {
+            width: 100%;
+            max-width: 520px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .code {
+            font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+            font-size: 3.4rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--primary-text);
+            margin: 0 0 8px;
+        }
+        h1 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+        p {
+            margin: 0 0 24px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        a.btn {
+            display: inline-block;
+            padding: 9px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+        a.btn-primary {
+            background: var(--primary-strong);
+            color: #fff;
+        }
+        a.btn-ghost {
+            background: var(--bg-code);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+        a.btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        a.btn:focus-visible {
+            outline: 2px solid var(--primary-strong);
+            outline-offset: 2px;
+        }
+        .lang-switch {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            gap: 6px;
+        }
+        .lang-btn {
+            padding: 5px 11px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+        .lang-btn[aria-pressed="true"] {
+            background: var(--primary-strong);
+            border-color: var(--primary-strong);
+            color: #fff;
+        }
+        [data-lang-block] { display: none; }
+        html[lang="zh"] [data-lang-block="zh"] { display: block; }
+        html[lang="en"] [data-lang-block="en"] { display: block; }
+        .actions a span[data-lang-block] { display: none; }
+        html[lang="zh"] .actions a span[data-lang-block="zh"],
+        html[lang="en"] .actions a span[data-lang-block="en"] { display: inline; }
+        @media (prefers-reduced-motion: reduce) {
+            * { transition-duration: 0.01ms !important; }
+            a.btn:hover { transform: none; }
+        }
+    </style>
+    <script>
+        (function () {
+            var saved = null;
+            try { saved = localStorage.getItem('lang'); } catch (e) {}
+            var lang = saved || ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
+            document.documentElement.lang = lang;
+        })();
+    </script>
+</head>
+<body>
+    <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn" type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">English</button>
+    </div>
+
+    <main class="card">
+        <p class="code">404</p>
+
+        <div data-lang-block="en">
+            <h1>Page not found</h1>
+            <p>The page you are looking for does not exist, or has been moved.</p>
+        </div>
+        <div data-lang-block="zh">
+            <h1>页面不存在</h1>
+            <p>你访问的页面不存在，或已被移动到其他位置。</p>
+        </div>
+
+        <div class="actions">
+            <a class="btn btn-primary" href="/"><span data-lang-block="en">Back to home</span><span data-lang-block="zh">返回首页</span></a>
+            <a class="btn btn-ghost" href="https://github.com/lik-586">GitHub</a>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var btns = document.querySelectorAll('.lang-btn');
+            function apply(lang) {
+                document.documentElement.lang = lang;
+                try { localStorage.setItem('lang', lang); } catch (e) {}
+                btns.forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+                });
+            }
+            btns.forEach(function (b) {
+                b.addEventListener('click', function () { apply(b.dataset.lang); });
+            });
+            apply(document.documentElement.lang === 'zh' ? 'zh' : 'en');
+        })();
+    </script>
+</body>
+</html>

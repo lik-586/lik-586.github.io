@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lik-586.github.io/sitemap.xml
