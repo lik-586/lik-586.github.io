@@ -1,7 +1,7 @@
 # lik-586.github.io
 
-> 李坤（lk）的个人主页 —— 中英双语单页作品集
-> Personal homepage of Li Kun — a bilingual single-page portfolio.
+> lik 的个人主页 —— 中英双语单页作品集
+> Personal homepage of lik — a bilingual single-page portfolio.
 
 纯静态实现：原生 **HTML + CSS + JavaScript**，无框架、无构建步骤，直接托管在 GitHub Pages 上。线上地址：<https://lik-586.github.io/>
 
